@@ -1454,12 +1454,11 @@ h1.hero-title {
     <div class="comp-picker">
       <label class="comp-picker-label" for="comp-pick">Compare commercetools against</label>
       <select id="comp-pick" class="comp-picker-select" onchange="renderCompare(this.value)">
-        <option value="custom" selected>Custom-Built Engine (Incumbent)</option>
-        <option value="adobe">Adobe Commerce</option>
-        <option value="bigcommerce">BigCommerce</option>
-        <option value="salesforce">Salesforce Commerce Cloud</option>
-        <option value="sap">SAP Commerce Cloud</option>
+        <option value="bigcommerce" selected>BigCommerce</option>
         <option value="shopify">Shopify Plus</option>
+        <option value="kibo">Kibo Commerce</option>
+        <option value="phasezero">PhaseZero.ai</option>
+        <option value="emporix">Emporix</option>
       </select>
     </div>
 
@@ -1662,19 +1661,16 @@ function toggleDeep(on) {
    COMPARISON: data + render
    ============================================================ */
 const compRows = [
-  { id:'customer',    label:'Customer data model + segmentation',         sub:'Extensible attributes, Customer Groups, loyalty tier' },
-  { id:'cdp',         label:'CDP / IDP integration',                      sub:'Use your own or CT native - no forced migration' },
-  { id:'modular',     label:'Modular / a la carte adoption',              sub:'Phase in capabilities without replacing what works' },
-  { id:'loyalty',     label:'Loyalty mechanics',                          sub:'Native data model or 3rd-party engine - your choice' },
-  { id:'b2x',         label:'B2C + B2B on one platform',                  sub:'One license, one engineering team, one data model' },
-  { id:'oms',         label:'Event-driven OMS handoff',                   sub:'Order event → your fulfillment, clean boundary' },
-  { id:'versionless', label:'Versionless - zero upgrade cycles',          sub:'No dependency migrations, no platform maintenance' },
-  { id:'scale',       label:'Auto-scaling - peak traffic, no ops',        sub:'No pre-warming, no SRE intervention required' },
-  { id:'security',    label:'Vendor-maintained PCI DSS + SOC 2',          sub:'Platform owns compliance, not your team' },
-  { id:'dx',          label:'Claude Code + API developer velocity',       sub:'Typed SDKs, OpenAPI spec, composable by design' },
-  { id:'tco',        label:'Total cost - build + maintain vs. SaaS',     sub:'Engineering hours on commodity vs. differentiation' },
-  { id:'obs',        label:'Self-serve observability / diagnostics',     sub:'Platform Insights - traffic, errors, latency, events' },
-  { id:'dx',         label:'Developer experience + SDK support',         sub:'REST, GraphQL, typed SDKs, documentation' }
+  { id:'customer',    label:'Customer data model + segmentation',    sub:'Extensible attributes, Customer Groups, loyalty tier' },
+  { id:'cdp',         label:'CDP / IDP integration',                 sub:'Use your own or CT native - no forced migration' },
+  { id:'modular',     label:'Modular / a la carte adoption',         sub:'Phase in capabilities without replacing what works' },
+  { id:'loyalty',     label:'Loyalty mechanics',                     sub:'Native data model or 3rd-party engine - your choice' },
+  { id:'b2x',         label:'B2C + B2B on one platform',             sub:'One license, one engineering team, one data model' },
+  { id:'oms',         label:'Event-driven OMS handoff',              sub:'Order event to your fulfillment, clean boundary' },
+  { id:'versionless', label:'Versionless - zero upgrade cycles',     sub:'No dependency migrations, no platform maintenance' },
+  { id:'scale',       label:'Auto-scaling - peak traffic, no ops',   sub:'No pre-warming, no SRE intervention required' },
+  { id:'security',    label:'Vendor-maintained PCI DSS + SOC 2',     sub:'Platform owns compliance, not your team' },
+  { id:'dx',          label:'Claude Code + API developer velocity',  sub:'Typed SDKs, OpenAPI spec, composable by design' }
 ];
 
 const ctCells = {
@@ -1691,6 +1687,86 @@ const ctCells = {
 };
 
 const compData = {
+  bigcommerce: {
+    name: 'BigCommerce',
+    tag:  'Mid-market ceiling in enterprise clothing',
+    cells: {
+      customer:   ['mid', 'Customer segments available via API but no native Customer Group equivalent for real-time commerce event scoping. Segmentation logic lives in your application layer, not the platform. Custom attributes via metafields are limited in depth for a DIYer/pro + loyalty tier model.'],
+      cdp:        ['mid', 'REST API accessible. CDP integration requires custom middleware. Webhook-based events available but less structured and less reliable under high volume than CT\'s Subscription model.'],
+      modular:    ['mid', 'More modular than a monolith but still a bundled platform. You cannot adopt just customer management standalone - the commerce core comes as a package. B2B Edition is a separate add-on, not a native capability.'],
+      loyalty:    ['mid', 'No native loyalty data model. Third-party apps (Loyalty Lion, Smile.io) add cost and a separate integration surface. Deep loyalty tie-in to pricing and browse requires custom development on top of BigCommerce\'s API.'],
+      b2x:        ['mid', 'B2B Edition supports company hierarchies and trade pricing. Less proven at wholesale complexity comparable to CarParts Wholesale. Unified B2C and B2B on one instance has documented limitations at enterprise scale.'],
+      oms:        ['mid', 'Order webhooks available. Payload is less structured than CT\'s Subscription model. Rate limits on webhook delivery can cause missed events under sustained high order volume.'],
+      versionless:['ok',  'SaaS continuous delivery. No forced upgrade projects. A reasonable versionless posture, though less formally guaranteed than CT\'s API stability commitment.'],
+      scale:      ['ok',  'Multi-tenant SaaS, auto-scaling. Proven at mid-market scale. Enterprise peak traffic at automotive GMV levels with millions of SKUs is less publicly documented.'],
+      security:   ['ok',  'SOC 2 Type 2 and PCI DSS certifications held. Standard enterprise security posture.'],
+      dx:         ['ok',  'Well-documented REST and GraphQL APIs, active community. Extension model is more constrained than CT\'s API Extensions for complex custom logic. Claude Code can work with BigCommerce APIs but the surface is shallower.']
+    }
+  },
+  shopify: {
+    name: 'Shopify Plus',
+    tag:  'Consumer-first - B2B and enterprise as afterthoughts',
+    cells: {
+      customer:   ['mid', 'Customer metafields can hold custom attributes. No native Customer Group equivalent for real-time pricing and event scoping - segmentation requires custom app logic or metafield workarounds. B2B customer model is a bolt-on overlay, not a native primitive.'],
+      cdp:        ['mid', 'Customer data accessible via API. No native Subscription event model - webhooks available but less structured. CDP integration requires custom middleware and careful management of Shopify\'s API rate limits.'],
+      modular:    ['no',  'Shopify Plus is a bundled platform. You cannot adopt just customer management - the commerce core is the platform. Checkout extensibility is limited to Shopify Functions, which is more constrained than CT\'s API Extension model.'],
+      loyalty:    ['mid', 'No native loyalty data model. Third-party apps (Yotpo, LoyaltyLion) dominate. Deep loyalty integration with pricing and browse requires custom app development that fights against Shopify\'s closed architecture.'],
+      b2x:        ['no',  'B2B and B2C require separate Shopify stores or a B2B-specific app layer. Unified customer identity across both is a custom build. Trade pricing, net terms, and quote-to-order require third-party apps - not native capabilities.'],
+      oms:        ['mid', 'Order webhooks available. Rate limits on webhook delivery can cause missed events at CarParts Wholesale volume. Less structured payload and less reliable delivery guarantee than CT\'s Subscription model.'],
+      versionless:['ok',  'SaaS continuous delivery. Versioned APIs introduce downstream breaking changes on Shopify\'s schedule, not yours - a meaningful distinction as your integration surface grows.'],
+      scale:      ['ok',  'Multi-tenant SaaS, auto-scaling. Proven at consumer peak traffic. Checkout capacity is Shopify-managed. The consumer scale is real; enterprise B2B complexity at this scale is less proven.'],
+      security:   ['ok',  'PCI DSS and SOC 2 maintained by Shopify. Standard enterprise certifications held.'],
+      dx:         ['ok',  'Strong developer ecosystem and documentation. Rate limits and versioned APIs require more defensive coding. Shopify Functions is more constrained than CT\'s API Extension model for the complex custom logic Carparts.com needs.']
+    }
+  },
+  kibo: {
+    name: 'Kibo Commerce',
+    tag:  'Composable ambition, smaller proven footprint',
+    cells: {
+      customer:   ['mid', 'Unified commerce platform with customer profile support and segmentation. Architecture philosophy is similar to CT but the depth of Customer Group real-time event scoping and the breadth of Custom Type extensibility is less proven at automotive catalog complexity.'],
+      cdp:        ['mid', 'Open APIs support CDP integration. No native event subscription architecture comparable to CT\'s Subscriptions. Integration requires custom middleware. Smaller partner ecosystem means fewer pre-built CDP connectors.'],
+      modular:    ['ok',  'Kibo is explicitly modular - order management, personalization, and search are available as standalone modules. Closer to CT\'s a la carte model than most in this list. Phase 1 customer-only adoption is more plausible here than with bundled platforms.'],
+      loyalty:    ['mid', 'Promotions engine available. Native loyalty mechanics require extension or third-party. Less documented at CarParts+ program complexity - earn/tier/redemption at Carparts.com\'s scale is not a published Kibo reference case.'],
+      b2x:        ['ok',  'B2B capabilities are a stated strength: account hierarchy, contract pricing, approval workflows, and requisitions. B2C and B2B on one platform is documented. Less battle-tested at the combined scale Carparts.com is targeting.'],
+      oms:        ['ok',  'Kibo has a native OMS module. Order events published via webhooks. Integration boundary is cleaner than monolith competitors, though the Subscription model is less formally specified than CT\'s.'],
+      versionless:['mid', 'SaaS-delivered but the versionless guarantee and API stability track record is shorter than CT\'s 10+ years of production use. Some customers report upgrade coordination requirements between modules.'],
+      scale:      ['mid', 'Cloud-native infrastructure. Peak traffic performance at Carparts.com\'s automotive GMV and SKU scale is less publicly documented. Smaller customer base means less collective stress-testing than CT\'s global fleet.'],
+      security:   ['ok',  'SOC 2 Type 2 and PCI DSS certifications held. Standard enterprise security posture.'],
+      dx:         ['mid', 'API-first with documentation, but a smaller developer community and ecosystem than CT. Claude Code would have less training data on Kibo\'s API surface, meaning more manual scaffolding and less reliable code generation than with CT.']
+    }
+  },
+  phasezero: {
+    name: 'PhaseZero.ai',
+    tag:  'AI-native B2B - limited B2C and consumer scale',
+    cells: {
+      customer:   ['mid', 'AI-native customer profile and segmentation built for B2B self-service. Strong for B2B buyer personas (procurement, fleet, wholesale). B2C consumer segmentation at the scale of Carparts.com\'s 90% first-time visitor traffic is outside the documented sweet spot.'],
+      cdp:        ['mid', 'AI-native data integration approach. CDP connectivity supported but the event-driven architecture maturity for high-volume consumer commerce is less proven than CT\'s Subscription model, which handles billions of events across its customer base.'],
+      modular:    ['mid', 'PhaseZero positions as composable but is an earlier-stage company. Standalone module adoption at Carparts.com\'s scale is less proven in production. Phase 1 customer-only scope is architecturally possible but less battle-tested.'],
+      loyalty:    ['no',  'No native loyalty data model for consumer programs. CarParts+ earn/tier/redemption at B2C scale is not a documented PhaseZero capability. Would require third-party integration or custom build on top of the platform.'],
+      b2x:        ['mid', 'Built primarily for B2B digital self-service and sales enablement - a genuine strength for CarParts Wholesale. B2C at Carparts.com\'s consumer traffic scale is materially outside the documented use case and reference customer base.'],
+      oms:        ['mid', 'Order management integration capabilities exist. Event-driven handoff documentation is less mature vs CT\'s Subscription model. Earlier-stage platform means the integration boundary has less production-hardening.'],
+      versionless:['mid', 'SaaS platform. As an earlier-stage company, the API stability guarantee and versionless track record is shorter. Breaking changes in a fast-moving AI-native platform carry more risk than a mature platform like CT.'],
+      scale:      ['no',  'Built for B2B mid-market. Consumer traffic at Carparts.com\'s volume - millions of sessions, 90% anonymous first-timers, automotive catalog complexity - is materially outside the documented reference cases. No published evidence of this scale.'],
+      security:   ['mid', 'SaaS security posture. PCI DSS and SOC 2 certifications - verify current status directly with PhaseZero. Earlier-stage company means a shorter compliance track record. US data residency should be confirmed contractually.'],
+      dx:         ['mid', 'AI-native development experience is a differentiator in philosophy. Smaller ecosystem and less documentation breadth than CT. Claude Code would have limited training data on PhaseZero\'s API surface, meaning less reliable code generation for integrations.']
+    }
+  },
+  emporix: {
+    name: 'Emporix',
+    tag:  'Composable and API-first - EU-first, US unproven',
+    cells: {
+      customer:   ['mid', 'Cloud-native composable platform with customer profile and segmentation support. Similar API-first design philosophy to CT. Less proven at US automotive catalog scale - most reference customers are EU-based retail, not automotive parts at Carparts.com\'s SKU depth.'],
+      cdp:        ['mid', 'Event-driven architecture with API-first design. CDP integration supported. Smaller ecosystem means fewer pre-built connectors. The event model is architecturally similar to CT\'s Subscriptions but less formally documented.'],
+      modular:    ['ok',  'Emporix is explicitly composable and modular - capabilities available standalone. Architecture philosophy aligns closely with CT. Phase 1 customer-only adoption is a plausible pattern given the composable design.'],
+      loyalty:    ['mid', 'Promotions engine available. Loyalty mechanics require third-party or custom extension. CarParts+ earn/tier/redemption at this scale is not a documented Emporix reference case.'],
+      b2x:        ['ok',  'Strong B2B capabilities: account hierarchy, contract pricing, approval workflows. B2C and B2B on one platform is a stated and documented capability. EU reference customers exist. US wholesale at CarParts Wholesale scale needs verification.'],
+      oms:        ['ok',  'Event-driven architecture with order event publishing. Integration pattern is similar to CT\'s Subscription model in design. Less production-hardened at US automotive order volumes.'],
+      versionless:['mid', 'Cloud-native SaaS. API stability and versionless delivery are stated. Shorter track record than CT\'s - fewer years of production use and a smaller customer base means less collective proof of the no-breaking-changes guarantee.'],
+      scale:      ['mid', 'Cloud-native infrastructure designed for scale. US enterprise references at automotive catalog depth and B2C traffic levels are limited. Emporix is EU-headquartered - US data residency and latency SLAs for Carparts.com need explicit contractual confirmation.'],
+      security:   ['mid', 'SOC 2 Type 2 and data privacy compliance documented. EU-first company - GDPR-aligned by design, but US-specific compliance requirements (US data residency, US-region failover) need explicit confirmation before procurement.'],
+      dx:         ['mid', 'API-first, OpenAPI-documented, similar surface to CT in design. Smaller developer community and ecosystem. Claude Code would have significantly less training data on Emporix\'s APIs than CT\'s extensively documented, widely-indexed surface.']
+    }
+  },
   custom: {
     name: 'Custom-Built Engine',
     tag:  'Built for you - maintained by you',
@@ -1807,6 +1883,7 @@ function renderCompare(key) {
   const body = compRows.map(r => {
     const ct = ctCells[r.id];
     const cp = data.cells[r.id];
+    if (!ct || !cp) return '';
     return '<tr>' +
       '<td class="row-label">' + r.label + '<small>' + r.sub + '</small></td>' +
       '<td class="ct-cell">' + verdictHtml(ct[0]) + ct[1] + '</td>' +
