@@ -458,9 +458,24 @@ h1.hero-title {
   <div class="nav-item" onclick="go('case2')"><span class="nav-icon">②</span> Scalability</div>
   <div class="nav-item" onclick="go('case3')"><span class="nav-icon">③</span> Security</div>
 
+  <div id="deep-dive-nav" class="sb-collapsible">
+    <div class="sb-heading">Deep Dives</div>
+    <div class="nav-item" onclick="go('customer')"><span class="nav-icon">◉</span> Customer &amp; Personalization</div>
+    <div class="nav-item" onclick="go('modular')"><span class="nav-icon">◫</span> Modular Adoption</div>
+    <div class="nav-item" onclick="go('b2b')"><span class="nav-icon">⊕</span> B2B Commerce</div>
+  </div>
+
   <div class="sb-heading">Evaluation</div>
   <div class="nav-item" onclick="go('compare')"><span class="nav-icon">⊞</span> Comparison</div>
   <div class="nav-item" onclick="go('faq')"><span class="nav-icon">◷</span> FAQ</div>
+
+  <label class="sb-toggle" for="deep-toggle">
+    <span class="sb-toggle-label">Show Deep Dives</span>
+    <span class="sb-switch">
+      <input type="checkbox" id="deep-toggle" onchange="toggleDeep(this.checked)">
+      <span class="sb-switch-slider"></span>
+    </span>
+  </label>
 
   <div class="sb-footer">
     <span>Prepared for</span>
@@ -488,7 +503,7 @@ h1.hero-title {
   <section id="s-overview" class="hero active">
     <div class="eyebrow">Digital Evaluation Room — Carparts.com</div>
     <h1 class="hero-title"><span style="font-size:clamp(39px,5.2vw,66px);display:block;margin-bottom:8px;">commercetools</span>Built So Carparts.com Can Build What Matters</h1>
-    <p class="hero-sub">This room is built by <a href="https://commercetools.com" target="_blank" style="color:var(--yellow);text-decoration:none;font-weight:600;">commercetools</a> for the Carparts.com team. Our view: you've built something impressive — a custom ecommerce engine running a scaled automotive parts business. The question isn't whether your team can build. It's whether buying the commodity pieces of commerce from a platform designed for exactly this use case frees your engineers to build more of what makes <a href="https://www.carparts.com" target="_blank" style="color:var(--yellow);text-decoration:none;">Carparts.com</a> different. Click around. Every claim in here points to documentation, an analyst report, or a customer story you can verify.</p>
+    <p class="hero-sub">This room is built by <a href="https://commercetools.com" target="_blank" style="color:var(--yellow);text-decoration:none;font-weight:600;">commercetools</a> for the Carparts.com team. Three years into a real MACH transformation — CMS, AI search, product recommendations, catalog services, and checkout modernized and running on AWS — the remaining gap is the one with the highest business impact: customer identity, personalization, and tying all of it into a browse-to-buy experience that converts the 90% first-time visitor into a returning customer. That's what this room is about. Every claim links to documentation, an analyst report, or a customer story you can verify independently.</p>
     <div class="hero-btns">
       <button class="btn-pri" onclick="go('buildvbuy')">The Build vs. Buy Case →</button>
       <a class="btn-sec" href="https://docs.commercetools.com" target="_blank">Open Documentation ↗</a>
@@ -507,26 +522,45 @@ h1.hero-title {
 
     <div class="sec-eyebrow">The Three Pillars</div>
     <h2 class="sec-title">Flexibility. Scalability. Security.</h2>
-    <p class="sec-lead" style="margin-bottom:22px;">These are the three areas where a purpose-built commerce platform outperforms a custom engine — not because your engineers aren't good enough to build them, but because building and maintaining them is not what makes Carparts.com competitively different.</p>
+    <p class="sec-lead" style="margin-bottom:22px;">These are the three areas where a purpose-built commerce platform outperforms a custom engine — not because your engineers aren't good enough to build them, but because building and maintaining them is not what makes Carparts.com competitively different. Toggle <strong>Show Deep Dives</strong> in the sidebar to explore Customer &amp; Personalization, Modular Adoption, and B2B Commerce — the three areas most directly tied to what came out of our initial conversation.</p>
 
     <div class="g3">
       <div class="card hi">
         <div class="card-icon">🔧</div>
         <div class="card-title">Flexibility</div>
-        <div class="card-body">API Extensions let you attach custom logic to any commerce event without forking the platform. Your existing frontend connects via REST or GraphQL. Custom attributes, custom checkout flows, custom pricing rules — all without a custom build from scratch.</div>
+        <div class="card-body">API Extensions attach your custom logic — fitment intelligence, loyalty mechanics, supplier pricing — to any commerce event without forking the platform. Your existing frontend and AI search layer connect as-is via REST or GraphQL.</div>
         <span class="card-lnk" onclick="go('case1')" style="cursor:pointer;">Explore Flexibility →</span>
       </div>
       <div class="card hi">
         <div class="card-icon">⚡</div>
         <div class="card-title">Scalability</div>
-        <div class="card-body">Versionless SaaS on multi-region cloud infrastructure. Auto-scaling handles your Black Friday, your flash sales, your unexpected traffic spikes — without pre-warming, without an on-call SRE watching dashboards, without a post-incident review about capacity planning.</div>
+        <div class="card-body">Versionless SaaS on GCP with horizontal auto-scaling. Traffic spikes — Black Friday, flash sales, viral affiliate blasts — require no pre-warming, no SRE intervention. Your team watches conversion, not infrastructure.</div>
         <span class="card-lnk" onclick="go('case2')" style="cursor:pointer;">Explore Scalability →</span>
       </div>
       <div class="card hi">
         <div class="card-icon">🔐</div>
         <div class="card-title">Security</div>
-        <div class="card-body">SOC 2 Type 2, PCI DSS, ISO 27001 — maintained by commercetools, not your team. Zero-day CVEs are patched by us. PCI scope shrinks because the payment surface is ours to maintain. Your engineers ship features, not security patches.</div>
+        <div class="card-body">SOC 2 Type 2, PCI DSS Level 1, ISO 27001 — maintained by commercetools. CVE patching on the commerce layer is our sprint, not yours. PCI scope narrows because the payment surface is ours to certify.</div>
         <span class="card-lnk" onclick="go('case3')" style="cursor:pointer;">Explore Security →</span>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="sec-eyebrow">AI-Native Development</div>
+    <h2 class="sec-title" style="font-size:clamp(18px,2.1vw,23px);">Built for the Claude Code era.</h2>
+    <p class="sec-lead" style="margin-bottom:22px;font-size:16px;">Carparts.com has standardized 100% on Claude Code after evaluating Copilot, Cursor, OpenAI Codex Enterprise, and Gemini. commercetools was designed for exactly this mode of development — before AI-native tooling became the expectation.</p>
+
+    <div class="card hi" style="margin-bottom:34px;">
+      <div style="display:flex;gap:18px;align-items:flex-start;">
+        <div style="font-size:28px;flex-shrink:0;">🤖</div>
+        <div>
+          <div class="card-title" style="font-size:16px;margin-bottom:10px;">commercetools + Claude Code: From Prompt to Production Faster</div>
+          <div class="card-body" style="font-size:14px;line-height:1.75;">
+            Every commercetools capability is reachable through clean, well-documented REST and GraphQL APIs with typed SDKs for TypeScript, Java, Python, and more. Full OpenAPI specs, structured example payloads, and an in-browser API explorer mean Claude Code has everything it needs in context to generate working integration code — API Extensions, customer attribute schemas, loyalty tier logic, OMS event handlers — without your engineers hunting for documentation or reverse-engineering undocumented behavior.<br><br>
+            The teams moving fastest on commercetools today are the ones where an engineer prompts Claude Code to scaffold an API Extension, iterates on the logic in the same session, and has something running in a sandbox the same afternoon. The promise of AI-accelerated development requires APIs that are composable, consistent, and fully documented. That's the architecture commercetools was built on — and it's why composable APIs are the right foundation for the AI agent and conversational commerce use cases your team is already thinking about.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -560,58 +594,50 @@ h1.hero-title {
        BUILD VS BUY
   ══════════════════════════════════════ -->
   <section id="s-buildvbuy" class="section">
-    <div class="sec-eyebrow">The Core Argument</div>
-    <h2 class="sec-title">The Custom Engine — What It Costs to Own It</h2>
-    <p class="sec-lead">You built a custom ecommerce engine. At the time, that was the right call — off-the-shelf options couldn't handle your catalog complexity, your fitment data model, or the pace of iteration you needed. Here's our read of where that decision starts working against you: the parts of commerce that are identical across every retailer on the internet require your engineers' time to maintain, secure, scale, and upgrade.</p>
+    <div class="sec-eyebrow">Where the Transformation Stands</div>
+    <h2 class="sec-title">What's Done. What's Left. What CT Covers.</h2>
+    <p class="sec-lead">Three years in, Carparts.com has moved fast. CMS, AI search, product recommendations, catalog services, and checkout — all modernized and running on AWS. CarParts+ loyalty is going live. The remaining gap is smaller in surface area but carries the highest business impact: the customer and personalization layer, the piece that ties everything else together and was the reason the e-commerce engine modernization stalled. Here's our read of what that gap is costing.</p>
 
-    <div class="sec-eyebrow" style="margin-bottom:12px;">Six Hidden Costs of a Custom Engine</div>
+    <div class="sec-eyebrow" style="margin-bottom:12px;">Five Gaps That Remain</div>
     <div class="pain-list">
       <div class="pain-item">
         <div class="pain-num">01</div>
         <div>
-          <div class="pain-title">Security patching is a recurring engineering tax.</div>
-          <div class="pain-body">Every CVE in every dependency your custom engine touches is your team's responsibility. Every PCI DSS scope expansion, every new compliance audit cycle, every zero-day in a library you use — these are sprint items that displace feature work. The number of vulnerabilities in open-source dependencies is not decreasing. This tax grows over time.</div>
-          <span class="tag t-r">Grows with codebase age</span>
+          <div class="pain-title">Every visitor gets the same experience — DIYer or professional, first-time or loyal.</div>
+          <div class="pain-body">Today there is no preference capture, no segmentation, and no signal feeding back from customer identity into the browse experience. A professional mechanic and a first-time DIYer land on the same homepage, see the same search results, and get the same product ranking. The data to differentiate them doesn't flow into a unified profile that drives the experience in real time.</div>
+          <span class="tag t-r">90% new visitors · 10% returning</span>
         </div>
       </div>
       <div class="pain-item">
         <div class="pain-num">02</div>
         <div>
-          <div class="pain-title">Traffic scaling is an infrastructure project, not a config change.</div>
-          <div class="pain-body">Peak traffic — Black Friday, flash sales, a viral social moment — requires your SRE team to pre-warm infrastructure, monitor dashboards during the event, and conduct a post-incident review if anything breaks. On a SaaS platform, this is not your problem. Your infrastructure scales automatically; you deploy a promotion and focus on the business outcome, not the ops.</div>
-          <span class="tag t-y">SRE attention → feature attention</span>
+          <div class="pain-title">Customer acquisition cost is rising as paid search ROI declines.</div>
+          <div class="pain-body">AI-driven search is changing how customers discover parts. Spending on Google to acquire a customer who leaves and never comes back is a model under pressure. The lever is retention: converting that 90% first-time visitor into a returning customer who buys directly. That requires knowing who the customer is, capturing their preferences, and using that data to make the next visit better than the last.</div>
+          <span class="tag t-y">Goal: 50/50 new vs. returning</span>
         </div>
       </div>
       <div class="pain-item">
         <div class="pain-num">03</div>
         <div>
-          <div class="pain-title">Commodity features still cost full-price sprints.</div>
-          <div class="pain-body">Loyalty programs, tiered pricing, cart rules, promotional logic, multi-currency support, B2B account management — these exist in commercetools as configurable primitives. In your custom engine, each of these is a development project. Every sprint spent building a promotions engine or a multi-address checkout is a sprint not spent on fitment intelligence, catalog search quality, or the customer experience that actually differentiates Carparts.com.</div>
-          <span class="tag t-y">Opportunity cost per sprint</span>
+          <div class="pain-title">CarParts+ loyalty is live — but customer data isn't connected to the browse layer.</div>
+          <div class="pain-body">Loyalty state, tier, and points balance are available. But without a unified customer attribute model, loyalty state can't feed back into browse, product ranking, banners, or pricing in real time. The infrastructure exists; the connective tissue between customer profile and experience doesn't. commercetools Customer Groups and extensible Custom Types are exactly that connective tissue.</div>
+          <span class="tag t-y">Loyalty live · personalization not yet</span>
         </div>
       </div>
       <div class="pain-item">
         <div class="pain-num">04</div>
         <div>
-          <div class="pain-title">Dependency upgrades compound into multi-quarter migration projects.</div>
-          <div class="pain-body">Every framework version, every database driver, every language runtime eventually forces an upgrade cycle. On a custom engine, these are migration projects your team plans, tests, and executes — often across multiple quarters. On commercetools, the platform is versionless. We handle our own infrastructure upgrades; you ship features on stable APIs.</div>
-          <span class="tag t-r">No upgrade ceiling on commercetools</span>
+          <div class="pain-title">B2B wholesale is 10% of business on a legacy stack — with plans to grow.</div>
+          <div class="pain-body">CarParts Wholesale runs on the same legacy systems being modernized on the B2C side. Plans to grow the wholesale business are constrained by that legacy. commercetools handles B2C and B2B under one platform and one license — the same engineering team, the same APIs, the same customer data model — with native B2B primitives (account hierarchy, dealer pricing, quote-to-order) that don't require a separate build.</div>
+          <span class="tag t-d">B2C + B2B · one platform</span>
         </div>
       </div>
       <div class="pain-item">
         <div class="pain-num">05</div>
         <div>
-          <div class="pain-title">Observability gaps are gaps you discover during incidents.</div>
-          <div class="pain-body">You instrumented what you knew to instrument at build time. But the gaps in coverage show up during the incidents you didn't anticipate. commercetools Platform Insights (GA May 2026) provides real-time traffic, error rates, latency percentiles, subscription health, and event-delivery diagnostics — self-serve, without requiring a third-party APM or custom dashboards your team built.</div>
-          <span class="tag t-d">Platform Insights — GA May 2026</span>
-        </div>
-      </div>
-      <div class="pain-item">
-        <div class="pain-num">06</div>
-        <div>
-          <div class="pain-title">Competitive velocity erodes when commodity work crowds the roadmap.</div>
-          <div class="pain-body">The retailers winning in automotive parts are winning on catalog quality, fitment accuracy, delivery speed promises, and personalization — not on cart architecture. If your engineering roadmap includes items that are identical across every retailer (checkout reliability, promotion modeling, payment method support), those items are displacing the work that makes Carparts.com different.</div>
-          <span class="tag t-y">Build differentiation, buy commodity</span>
+          <div class="pain-title">The e-commerce engine goal was never just cart and checkout.</div>
+          <div class="pain-body">The reason the prior modernization effort stalled wasn't the checkout layer — that's running on AWS. It was that the full goal included customer + personalization feeding back into the browse experience, and a complete solution couldn't be scoped cleanly. commercetools' modular adoption model answers that directly: adopt customer management and segmentation first, connect it to your existing AI search and checkout layer, and extend from there on a timeline Carparts.com controls.</div>
+          <span class="tag t-y">Modular adoption · crawl-walk-run</span>
         </div>
       </div>
     </div>
@@ -619,41 +645,39 @@ h1.hero-title {
     <div class="div"></div>
 
     <div class="sec-eyebrow">The Line Between CT and Carparts.com</div>
-    <h2 class="sec-title">What you buy. What you keep.</h2>
-    <p class="sec-lead">commercetools handles the commodity commerce layer. Carparts.com owns the differentiated layer. This is not a constraint — it's the design. The platform is API-first precisely so you can attach your proprietary logic to any commerce event without modifying the platform itself.</p>
+    <h2 class="sec-title">What CT handles. What you keep building.</h2>
+    <p class="sec-lead">commercetools takes on the commodity commerce layer — the parts that are identical across every retailer. Carparts.com keeps owning the differentiated layer: fitment intelligence, AI search, personalization logic, and the customer experience. The platform is API-first so your proprietary logic attaches to any commerce event without modifying the platform.</p>
 
     <div class="g2" style="margin-top:16px;">
       <div class="card">
         <div class="card-icon">🛒</div>
-        <div class="card-title">commercetools Provides</div>
+        <div class="card-title">commercetools Covers</div>
         <div class="card-body">
           <ul style="margin:8px 0 0 16px;line-height:1.8;">
+            <li>Customer data model with extensible attributes</li>
+            <li>Customer Groups for real-time segmentation</li>
+            <li>Loyalty tier and points data model (native or 3rd party)</li>
             <li>Cart, checkout, and order management</li>
             <li>Pricing, promotions, and discount engine</li>
-            <li>Product catalog with custom attributes</li>
-            <li>Payment integration layer</li>
-            <li>Customer and account management</li>
-            <li>Search API (bring your own provider)</li>
-            <li>Security, compliance, and SLA</li>
-            <li>Auto-scaling infrastructure</li>
-            <li>Versionless upgrades</li>
+            <li>Event-driven OMS handoff (SQS / Pub-Sub)</li>
+            <li>B2C + B2B under one platform and license</li>
+            <li>Security, compliance, SLA, and versionless upgrades</li>
           </ul>
         </div>
       </div>
       <div class="card hi">
         <div class="card-icon">🔩</div>
-        <div class="card-title">Carparts.com Builds</div>
+        <div class="card-title">Carparts.com Keeps Building</div>
         <div class="card-body">
           <ul style="margin:8px 0 0 16px;line-height:1.8;">
-            <li>Fitment data (Year / Make / Model / Engine)</li>
-            <li>Vehicle-specific catalog intelligence</li>
+            <li>Fitment intelligence (Year / Make / Model / Engine)</li>
+            <li>AI search and product recommendations (already live)</li>
             <li>VIN lookup and compatibility logic</li>
-            <li>Personalization and recommendation models</li>
-            <li>Proprietary pricing strategy</li>
-            <li>Customer experience and frontend</li>
-            <li>Supplier and inventory integrations</li>
-            <li>Loyalty and retention programs</li>
-            <li>Anything that makes Carparts.com unique</li>
+            <li>Personalization rules and segmentation service</li>
+            <li>CarParts+ loyalty UX and earn/redemption logic</li>
+            <li>Customer experience and frontend (existing stack)</li>
+            <li>Last-mile delivery and fulfillment OMS (already owned)</li>
+            <li>Supplier integrations and pricing feeds</li>
           </ul>
         </div>
       </div>
@@ -1045,6 +1069,381 @@ h1.hero-title {
 
 
   <!-- ══════════════════════════════════════
+       DEEP DIVE: CUSTOMER & PERSONALIZATION
+  ══════════════════════════════════════ -->
+  <section id="s-customer" class="section">
+    <div class="sec-eyebrow">Deep Dive — Customer Intelligence</div>
+    <h2 class="sec-title">Customer &amp; Personalization: The Missing Layer</h2>
+    <p class="sec-lead">The most direct path to reducing customer acquisition cost and growing returning visitor rates is knowing who the customer is and using that to shape the experience. Today, everyone who lands on Carparts.com gets the same browse experience — DIYer or professional, loyalty member or not, first car or fleet. commercetools' customer data model, <a href="https://docs.commercetools.com/api/projects/customerGroups" target="_blank" style="color:var(--yellow);text-decoration:none;">Customer Groups</a>, and extensible <a href="https://docs.commercetools.com/api/projects/custom-fields" target="_blank" style="color:var(--yellow);text-decoration:none;">Custom Types</a> are the architecture to capture, store, and act on that signal.</p>
+
+    <div class="scenario-box">
+      <div class="scenario-label">The Scenario</div>
+      <div class="scenario-text">A customer creates an account on Carparts.com. During onboarding, they indicate they're a professional mechanic with a 2-bay shop, own 3 vehicles, and are interested in brakes and oil. They join CarParts+. Their next session: the browse experience reflects their profile — pro-grade parts surface first, their loyalty balance is visible in the header, banners are tuned to their vehicle makes, and they're recognized as a returning customer rather than an anonymous visitor. How does this work in commercetools — and what does Carparts.com configure vs. build?</div>
+    </div>
+
+    <div class="sec-eyebrow" style="margin-bottom:14px;">Tailored Questions — Customer &amp; Personalization</div>
+    <div class="acc-list">
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q1</span>
+          <span class="acc-q">How does CT model customer attributes — things like DIYer vs. professional, vehicle count, loyalty tier? What's native vs. what needs Custom Types?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>commercetools Customer objects have a set of native fields (email, name, addresses, date of birth, customer number) and an extensible Custom Type layer for any attribute your business defines. DIYer/professional classification, vehicle ownership, preferred categories, CarParts+ tier, and preference flags are all modeled as Custom Fields on the Customer object — defined once in Merchant Center, populated at registration or via API, and immediately available on every subsequent API response.</p>
+          <p>There is no schema migration or database change required to add a new attribute. You define the Custom Type, add the field, and start writing to it. The attribute is available in the Customer API response for every downstream consumer — your personalization service, your search ranking layer, your frontend banner logic — immediately.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/customers" target="_blank">Customers API →</a>
+            <a href="https://docs.commercetools.com/api/projects/custom-fields" target="_blank">Custom Fields →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q2</span>
+          <span class="acc-q">How do Customer Groups enable real-time segmentation — DIYer vs. professional, loyalty tier Bronze/Silver/Gold?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>Customer Groups are a native first-class concept in commercetools. A customer belongs to one Customer Group at a time, and that group membership is evaluated at every commerce event: price lookup, cart calculation, product visibility, promotion eligibility. When a customer's loyalty tier advances from Bronze to Gold, you update their Customer Group assignment via the API — the next request they make immediately reflects Gold-tier pricing, Gold-tier promotional eligibility, and any other group-scoped configuration.</p>
+          <p>For Carparts.com's use case: a DIYer Customer Group and a Professional Customer Group carry different default price tiers (professional accounts often get trade pricing), different product ranking signals fed to your search layer, and different promotional eligibility. Group assignment happens at account creation based on onboarding answers, and can be updated automatically when behavior signals warrant a reclassification — via an API Extension hooked to order placement or a Subscription event.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/customerGroups" target="_blank">Customer Groups →</a>
+            <a href="https://docs.commercetools.com/api/projects/standalone-prices" target="_blank">Standalone Prices →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q3</span>
+          <span class="acc-q">We already have a CDP with customer data scattered across systems. Can CT's customer object work alongside it without forcing a full migration?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>Yes — and this is the right architecture for a team at Carparts.com's stage. commercetools' customer object is the commerce identity record: it holds the attributes that matter for commerce events (pricing, promotions, cart behavior, order history). Your CDP continues to hold the broader analytics and marketing identity record. The two are linked by a shared identifier — typically the customer's email or an external ID stored as a Custom Field on the CT Customer object.</p>
+          <p>In practice: CT fires a Subscription event when a customer's order completes or their profile updates. Your CDP picks up that event and enriches its own record. Conversely, when your CDP resolves a segment (e.g., "lapsed loyalty customer, high LTV"), it can call the CT API to update the Customer Group or a Custom Field, which immediately affects the next commerce experience. The systems complement each other; neither owns everything.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/subscriptions" target="_blank">Subscriptions →</a>
+            <a href="https://docs.commercetools.com/api/projects/customers" target="_blank">Customers API →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q4</span>
+          <span class="acc-q">How would CarParts+ loyalty tier advancement work in CT's data model — earn, track, advance, and apply?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>The native CT pattern for loyalty: tier is a Customer Group (Bronze, Silver, Gold, Professional), points balance is a Custom Field on the Customer object, and points earn logic runs in an API Extension hooked to order confirmation. When an order completes, your loyalty service calculates the earn amount, calls the CT API to increment the points Custom Field, and evaluates whether a tier upgrade is warranted — updating the Customer Group if so. No separate loyalty platform required for the data model; the logic lives in your extension.</p>
+          <p>For teams that want a dedicated loyalty engine (Talon.One, Loyalty Prime, Antavo), commercetools integrates cleanly — CT fires the order event, the loyalty platform processes earn and redemption, and writes the updated balance back to the CT Customer object via API. The CT customer record stays as the commerce source of truth; the loyalty platform handles the program rules. Carparts.com chooses the pattern that fits the CarParts+ program complexity.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/customerGroups" target="_blank">Customer Groups →</a>
+            <a href="https://docs.commercetools.com/api/projects/custom-fields" target="_blank">Custom Fields →</a>
+            <a href="https://docs.commercetools.com/api/projects/api-extensions" target="_blank">API Extensions →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q5</span>
+          <span class="acc-q">What's the event model for feeding a customer signal — new purchase, tier change, vehicle added — back into the browse and search experience?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>commercetools Subscriptions publish events to GCP Pub-Sub, AWS SQS, or Azure Service Bus when any commerce resource changes: order placed, customer updated, Customer Group changed, Custom Field written. Your personalization service or search ranking service subscribes to these events and updates its own state accordingly — refreshing the customer's segment, re-ranking product results, updating banner eligibility.</p>
+          <p>The loop: customer adds a vehicle to their profile (Custom Field update on CT Customer) → CT publishes a customer-updated event → your AI search layer picks up the event → next product search for this customer surfaces results ranked against their vehicle profile. The latency from profile update to experience update is sub-second for the event publish; the downstream refresh speed is controlled by your personalization service, not the platform.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/subscriptions" target="_blank">Subscriptions →</a>
+            <a href="https://docs.commercetools.com/api/projects/messages" target="_blank">Messages API →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q6</span>
+          <span class="acc-q">What does "known customer" look like in CT's data model for a business where 90% of visitors are anonymous first-timers?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>commercetools handles both anonymous and authenticated sessions natively. An anonymous visitor gets an anonymous cart with a session token — their browse behavior, cart contents, and any preference signals your frontend captures are associated with that session. When they create an account or log in, the anonymous cart merges with their authenticated customer record automatically. No data is lost; the transition from unknown to known is seamless.</p>
+          <p>For a business at Carparts.com's 90% first-time visitor rate, the priority is making that account-creation moment count: ask the right questions (vehicle, persona, interests), capture them as Custom Fields, assign the right Customer Group, and make the second visit materially better than the first. CT's onboarding flow is your frontend — you design the questions; CT stores the answers as structured, queryable customer attributes that every downstream system can act on.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/me-profile" target="_blank">Me (Anonymous Session) →</a>
+            <a href="https://docs.commercetools.com/api/projects/customers" target="_blank">Customers API →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card hi">
+      <div class="card-title">Bottom Line on Customer &amp; Personalization</div>
+      <div class="card-body" style="font-size:14px;margin-top:8px;line-height:1.72;">
+        commercetools Customer Groups and Custom Types are the data model that connects CarParts+ loyalty, DIYer/pro segmentation, and vehicle preferences to every commerce event. This is the connective tissue that was missing — the piece that makes loyalty, search ranking, and personalization work together rather than in silos. It's configuration, not a custom build.
+      </div>
+    </div>
+
+    <div class="sec-footer">Carparts.com · <a href="https://docs.commercetools.com/api/projects/customerGroups" target="_blank">Customer Groups</a> · <a href="https://docs.commercetools.com/api/projects/custom-fields" target="_blank">Custom Fields</a></div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       DEEP DIVE: MODULAR ADOPTION
+  ══════════════════════════════════════ -->
+  <section id="s-modular" class="section">
+    <div class="sec-eyebrow">Deep Dive — Phased Adoption</div>
+    <h2 class="sec-title">Modular Commerce: Adopt What You Need, When You Need It</h2>
+    <p class="sec-lead">Carparts.com doesn't need to replace what's working. AI search, catalog services, and checkout on AWS are running. The question is which remaining capabilities make sense to adopt from commercetools, in what order, and how they integrate with the existing modernized stack without disrupting it. The answer is modular — every CT capability is independently adoptable, and the platform is designed to coexist with services you already own.</p>
+
+    <div class="scenario-box">
+      <div class="scenario-label">The Scenario</div>
+      <div class="scenario-text">Phase 1 scope: Carparts.com wants to adopt CT for customer management and personalization first — Customer Groups, Custom Types, loyalty tier logic — while keeping existing AI search, checkout on AWS, and OMS integrations completely intact. No big-bang, no customer-facing change on day one. What does that integration actually look like? Which CT APIs are in scope, what stays untouched, and what's a realistic timeline for a team of Carparts.com's caliber?</div>
+    </div>
+
+    <div class="sec-eyebrow" style="margin-bottom:14px;">Tailored Questions — Modular Adoption</div>
+    <div class="acc-list">
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q1</span>
+          <span class="acc-q">Which CT capabilities are genuinely standalone? Can we adopt customer and personalization without touching cart or checkout?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>Yes — this is the explicit design of commercetools' composable architecture. The Customer API, Customer Groups, and Custom Types are fully independent of the Cart, Order, and Checkout APIs. You can create, read, and update customer records, manage group assignments, and publish customer-update events to your downstream systems without ever touching a cart object in CT.</p>
+          <p>A Phase 1 integration that adopts CT purely for customer management would use: the Customers API (create, update, authenticate), Customer Groups API (assign and change group membership), Custom Types API (define and write preference attributes), and Subscriptions (publish customer-change events to your existing event bus). Your existing checkout on AWS continues to process orders; CT holds the customer record and makes it available to your personalization and search layers via API.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/customers" target="_blank">Customers API →</a>
+            <a href="https://docs.commercetools.com/api/projects/customerGroups" target="_blank">Customer Groups →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q2</span>
+          <span class="acc-q">Carparts.com already has AI search and product recommendations running. How does CT integrate without disrupting them?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>CT does not replace your search layer — it feeds it. The standard composable pattern is: commercetools holds the product catalog as the authoritative commerce record (price, inventory, attributes, availability), and your search provider (Klevu, Algolia, Constructor, or your own Elasticsearch index) indexes from CT via the Import API or Subscriptions. Your existing search infrastructure continues to serve queries; CT becomes the source it indexes from.</p>
+          <p>For a team that already has a working AI search layer, the integration is additive: CT product data replaces or supplements your current catalog feed. Your search ranking models, fitment filters, and recommendation logic remain entirely in your control. Nothing about your search experience changes on day one — you're changing what feeds it, not how it works.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/import" target="_blank">Import API →</a>
+            <a href="https://docs.commercetools.com/api/projects/subscriptions" target="_blank">Subscriptions →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q3</span>
+          <span class="acc-q">Carparts.com owns its fulfillment and OMS. What exactly does the CT handoff look like — what does CT publish, what does our system consume?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>The handoff is event-driven and clean. When an order is placed in CT, a Subscription publishes an <code>OrderCreated</code> message to your event bus (GCP Pub-Sub, AWS SQS, or Azure Service Bus — your choice). The message payload includes the full order object: line items, quantities, prices, shipping address, payment status, and any Custom Fields you've added to the order. Your OMS picks up the event, processes fulfillment, and calls back to CT's Orders API to update order status (confirmed, shipped, delivered, returned) as fulfillment progresses.</p>
+          <p>Because Carparts.com owns its last-mile delivery infrastructure, this boundary is particularly clean: CT owns the order record and customer-facing order history; your fulfillment system owns everything downstream of the order event. No CT involvement in warehouse ops, routing, or delivery — just the structured event and the status update API.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/subscriptions" target="_blank">Subscriptions →</a>
+            <a href="https://docs.commercetools.com/api/projects/orders" target="_blank">Orders API →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q4</span>
+          <span class="acc-q">What does a crawl-walk-run adoption sequence look like for a team at Carparts.com's stage?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p><strong>Crawl — Customer &amp; Personalization (Phase 1):</strong> Adopt CT as the customer data platform. Migrate account creation and authentication to CT. Define Custom Types for vehicle profile, persona, and preference attributes. Assign Customer Groups for DIYer/pro and loyalty tiers. Connect CT Subscriptions to your existing event bus and personalization service. Existing checkout and search are untouched. Timeline: 8–12 weeks for a team of Carparts.com's caliber.</p>
+          <p><strong>Walk — Cart, Checkout, and Pricing (Phase 2):</strong> Migrate cart and checkout to CT, connecting your existing search layer as the product discovery surface and your OMS as the fulfillment consumer. Adopt CT's pricing and promotions engine, replacing custom promotion logic. Timeline: 12–20 weeks depending on integration depth with supplier pricing feeds.</p>
+          <p><strong>Run — B2B Wholesale and Advanced Capabilities (Phase 3):</strong> Bring CarParts Wholesale onto CT's B2B layer (Business Units, dealer pricing, quote-to-order). Extend with Assisted Selling, advanced loyalty mechanics, and any remaining custom flows. Both B2C and B2B run on one platform under one license.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/import" target="_blank">Import API →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q5</span>
+          <span class="acc-q">Can we run CT's customer module alongside our existing auth/IDP without forcing a user migration on day one?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>Yes. commercetools supports external identity provider integration via standard OAuth2/OIDC. Your existing IDP continues to handle authentication; CT holds the commerce identity record linked by an external customer ID. New accounts created after Phase 1 go-live are provisioned in CT directly. Existing accounts can be lazily migrated — when an existing customer logs in via your IDP, a CT customer record is created or looked up by their external ID and linked. No forced migration, no customer-facing change, no downtime.</p>
+          <p>The external ID pattern means CT's customer object is enriched incrementally as customers authenticate and interact — their commerce history, preferences, and loyalty data accumulates in CT over time without requiring a one-time bulk migration of all existing user records.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/authorization" target="_blank">Authorization →</a>
+            <a href="https://docs.commercetools.com/api/projects/customers" target="_blank">Customers API →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q6</span>
+          <span class="acc-q">What's the honest integration effort for Phase 1 — team size, timeline, and scope?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>Phase 1 scope (customer management + personalization foundation): 1–2 backend engineers for the CT integration layer, 1 engineer for the Subscription/event-bus wiring, and your existing frontend team for the account creation and preference capture UI. No dedicated infrastructure team — CT is SaaS. No platform migration — your checkout, search, and OMS are untouched.</p>
+          <p>Timeline: 8–12 weeks from integration kickoff to first production traffic on CT's customer layer, for a team already operating at MACH standards with Claude Code as the development accelerator. The CT SDK, OpenAPI spec, and documentation are designed to minimize time-to-first-call — teams with your engineering caliber typically have a working proof-of-concept within the first week of hands-on time.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/sdk" target="_blank">SDKs →</a>
+            <a href="https://docs.commercetools.com/api" target="_blank">API Reference →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card hi">
+      <div class="card-title">Bottom Line on Modular Adoption</div>
+      <div class="card-body" style="font-size:14px;margin-top:8px;line-height:1.72;">
+        The transformation stalled because a complete solution couldn't be scoped cleanly as one project. Modular adoption answers that directly: Phase 1 is customer + personalization, scoped to 8–12 weeks, with no impact on checkout, search, or fulfillment. Phase 2 and 3 follow at a pace Carparts.com controls. The platform is designed to coexist with what's working — not replace everything at once.
+      </div>
+    </div>
+
+    <div class="sec-footer">Carparts.com · <a href="https://docs.commercetools.com/api/projects/subscriptions" target="_blank">Subscriptions</a> · <a href="https://docs.commercetools.com/api/projects/import" target="_blank">Import API</a></div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       DEEP DIVE: B2B COMMERCE
+  ══════════════════════════════════════ -->
+  <section id="s-b2b" class="section">
+    <div class="sec-eyebrow">Deep Dive — B2B Commerce</div>
+    <h2 class="sec-title">B2B Commerce: One Platform for CarParts Wholesale</h2>
+    <p class="sec-lead">CarParts Wholesale is 10% of the business today — on a legacy stack, with plans to grow. commercetools handles B2C and B2B under one platform and one license: the same engineering team, the same APIs, the same customer data model — with native B2B primitives that don't require a separate build or a separate implementation. When the wholesale modernization is prioritized, the CT foundation from Phase 1 is already in place.</p>
+
+    <div class="scenario-box">
+      <div class="scenario-label">The Scenario</div>
+      <div class="scenario-text">A wholesale buyer — an independent repair shop owner — logs into CarParts Wholesale. They see account-specific pricing (trade tier, volume discounts on brake components), place a bulk order for 40 line items, apply net-30 payment terms, and generate an invoice for their shop's accounting system. Their employee places a similar order the next morning under the same wholesale account, with the same pricing but scoped to their own permissions. How does this work in CT — and how does it share infrastructure with the B2C Carparts.com experience?</div>
+    </div>
+
+    <div class="sec-eyebrow" style="margin-bottom:14px;">Tailored Questions — B2B Commerce</div>
+    <div class="acc-list">
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q1</span>
+          <span class="acc-q">How does CT model B2B accounts — independent repair shops, fleets, dealerships with multiple buyers?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>commercetools <a href="https://docs.commercetools.com/api/projects/business-units" target="_blank" style="color:var(--yellow);text-decoration:none;">Business Units</a> are the native B2B account model. A Business Unit represents a company (a repair shop, a fleet operator, a dealership). Individual buyers within that company are Customer objects associated with the Business Unit. The Business Unit carries the account-level configuration: credit limit, payment terms, approved product catalog, and discount tier.</p>
+          <p>Business Units support parent-child hierarchy: a regional distributor Business Unit can have individual shop Business Units as children, inheriting pricing and catalog access from the parent. For CarParts Wholesale's use case — independent shops buying on trade accounts — this maps directly: each shop is a Business Unit, each buyer at the shop is a Customer associated with that Unit, and account-level pricing flows from the Business Unit's Customer Group assignment.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/business-units" target="_blank">Business Units →</a>
+            <a href="https://docs.commercetools.com/api/projects/customerGroups" target="_blank">Customer Groups →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q2</span>
+          <span class="acc-q">Can a wholesale buyer and a B2C consumer share the same CT customer identity system — or is B2B a separate system?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>Same system. A customer in CT can be a B2C consumer, a B2B buyer, or both — distinguished by their Customer Group and Business Unit association. A professional mechanic who buys personally on Carparts.com (B2C) and also orders for their shop through CarParts Wholesale (B2B) can have one CT customer record with both a personal customer context and a Business Unit association. Their B2C experience uses the personal customer context; their wholesale experience uses the Business Unit context.</p>
+          <p>This is the "B2X" architecture — one platform serving both personas under one license, one engineering team, and one data model. The business logic that differentiates B2C from B2B (pricing, catalog visibility, payment terms) lives in CT configuration, not in separate codebases or separate platform instances.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/business-units" target="_blank">Business Units →</a>
+            <a href="https://docs.commercetools.com/api/projects/me-profile" target="_blank">Me (B2B Session) →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q3</span>
+          <span class="acc-q">How does account-specific pricing work for wholesale — trade tiers, volume discounts, contract pricing?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>CT's pricing model supports Customer Group-scoped prices natively. A wholesale Customer Group (e.g., "Trade Tier 1", "Fleet Account") carries its own price tier on every applicable product — no separate pricing database, no custom price calculation service needed for standard tier pricing. Volume discounts are modeled as Cart Discounts scoped to the wholesale Customer Group: order 10+ of any brake line item, get 8% off.</p>
+          <p>For contract-specific pricing (a named account with negotiated rates on specific SKUs), Standalone Prices with Customer Group scoping handle this directly: the specific product-customer group combination carries the negotiated price, which overrides the standard trade tier price. All of this is configurable in Merchant Center by your wholesale ops team — no engineering sprint required to onboard a new account with a custom price schedule.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/standalone-prices" target="_blank">Standalone Prices →</a>
+            <a href="https://docs.commercetools.com/api/projects/cartDiscounts" target="_blank">Cart Discounts →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q4</span>
+          <span class="acc-q">Does CT support B2B-specific payment terms — net-30, invoicing, purchase orders?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>CT's Payment object is flexible enough to model net-30 and invoice-based payment: the Order is placed with a Payment object in "pending" state and a payment method of "invoice" or "net-terms". The payment state is updated when the invoice is settled — either automatically via your AR integration or manually by your wholesale ops team via Merchant Center. The Order record remains fully visible and actionable throughout.</p>
+          <p>Purchase order numbers, cost center codes, and any other B2B order metadata are modeled as Custom Fields on the Order object — available on the order confirmation, the invoice, and any downstream ERP or accounting system that consumes the order event. This is configuration, not a custom build: define the Custom Type, start writing PO numbers at order creation, and the data flows through the entire order lifecycle.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/payments" target="_blank">Payments API →</a>
+            <a href="https://docs.commercetools.com/api/projects/orders" target="_blank">Orders API →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q5</span>
+          <span class="acc-q">CT also has a Quotes API. How does that apply to wholesale — rep creates a quote, customer accepts and checks out?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>Yes — the Quotes API is a native B2B capability. A wholesale rep creates a Quote in CT for a specific Business Unit customer: line items, negotiated prices, expiry date, and terms. The customer receives the quote (via email or their account portal), reviews it, accepts the terms, and the quote converts directly to a cart they check out from — no re-keying, no rep involvement in the checkout step.</p>
+          <p>For CarParts Wholesale's high-volume B2B buyers, this flow replaces the current manual process (email exchange, offline price negotiation, manual order entry) with a structured digital workflow that's auditable, faster, and keeps the order in the commerce layer rather than bypassing it to a legacy system.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/quotes" target="_blank">Quotes API →</a>
+            <a href="https://docs.commercetools.com/api/projects/staged-quotes" target="_blank">Staged Quotes →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q6</span>
+          <span class="acc-q">What does migrating CarParts Wholesale look like — standalone project, or does it follow naturally from Phase 1 and 2?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>Phase 3, naturally following Phase 1 and 2. By the time B2B migration is prioritized, CT already holds the customer data model (Phase 1) and the cart, checkout, and pricing engine (Phase 2). Adding B2B is additive: enable Business Units on the existing project, define wholesale Customer Groups and price tiers, configure the wholesale storefront to use Business Unit context for authentication and pricing, and connect the same OMS event integration that B2C already uses.</p>
+          <p>The engineering lift for Phase 3 is materially smaller than if B2B were a standalone project — because the foundation is shared. One platform, one license, one integration layer serving both business lines. The wholesale team gets a modern commerce experience without a parallel implementation project; Carparts.com's engineering team doesn't maintain two separate commerce stacks.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/business-units" target="_blank">Business Units →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card hi">
+      <div class="card-title">Bottom Line on B2B Commerce</div>
+      <div class="card-body" style="font-size:14px;margin-top:8px;line-height:1.72;">
+        CarParts Wholesale doesn't need a separate platform. Business Units, trade pricing, quote-to-order, and net-30 payment terms are native CT capabilities — on the same project, same license, and same engineering team as B2C. When wholesale growth is prioritized, the CT foundation from Phases 1 and 2 is already in place. Phase 3 is an extension, not a restart.
+      </div>
+    </div>
+
+    <div class="sec-footer">Carparts.com · <a href="https://docs.commercetools.com/api/projects/business-units" target="_blank">Business Units</a> · <a href="https://docs.commercetools.com/api/projects/quotes" target="_blank">Quotes API</a></div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
        COMPARISON
   ══════════════════════════════════════ -->
   <section id="s-compare" class="section">
@@ -1085,21 +1484,22 @@ h1.hero-title {
   <section id="s-faq" class="section">
     <div class="sec-eyebrow">Frequently Asked Questions</div>
     <h2 class="sec-title">Common Questions</h2>
-    <p class="sec-lead">Questions we anticipate from the Carparts.com team as you evaluate commercetools against your current custom-built engine. Every answer links to public documentation or a verifiable customer story.</p>
+    <p class="sec-lead">Questions drawn directly from our discovery conversation with the Carparts.com engineering team. Every answer links to public documentation or a verifiable customer story.</p>
 
     <div class="acc-list">
 
       <div class="acc-item">
         <button class="acc-trigger" onclick="toggleAcc(this)">
           <span class="acc-num">Q1</span>
-          <span class="acc-q">How disruptive is migrating from a custom-built engine to commercetools? Do we replatform everything at once?</span>
+          <span class="acc-q">We're not trying to do a full transformation right now. Can we pick specific CT capabilities — just customer and personalization — without replacing everything?</span>
           <span class="acc-arrow">&#9660;</span>
         </button>
         <div class="acc-body">
-          <p>No — and attempting a big-bang cutover is the wrong pattern. The recommended approach is an incremental "strangler fig" migration: your custom engine continues serving traffic while commercetools is adopted flow by flow. A common starting point is a single checkout path, a new product line, or a new business initiative (loyalty program, B2B channel) that doesn't require migrating existing traffic on day one.</p>
-          <p>Because commercetools is headless, your existing frontend continues to serve customers throughout the migration. API calls are rerouted from your custom backend to commercetools endpoints incrementally. The customer experience does not change; the backend plumbing does, one piece at a time. The migration pace is controlled by Carparts.com, not by a vendor migration schedule or a platform sunset deadline.</p>
+          <p>This is exactly the right starting point. commercetools' modular architecture means every capability is independently adoptable. The Customer API, Customer Groups, and Custom Types operate completely independently of Cart, Checkout, and Orders. A Phase 1 that adopts CT purely for customer management and personalization — while your existing checkout on AWS and AI search continue running unchanged — is not a workaround. It's the intended pattern.</p>
+          <p>The reason the prior modernization effort stalled was that the full goal (customer + personalization + browse integration) couldn't be scoped as one project. Modular adoption answers that directly: Phase 1 is 8–12 weeks, scoped, shippable, and creates real business value (segmentation, loyalty tie-in, returning customer improvement) before a single cart object moves to CT.</p>
           <div class="acc-links">
-            <a href="https://docs.commercetools.com/api/projects/import" target="_blank">Import API →</a>
+            <a href="https://docs.commercetools.com/api/projects/customers" target="_blank">Customers API →</a>
+            <a href="https://docs.commercetools.com/api/projects/customerGroups" target="_blank">Customer Groups →</a>
           </div>
         </div>
       </div>
@@ -1107,15 +1507,16 @@ h1.hero-title {
       <div class="acc-item">
         <button class="acc-trigger" onclick="toggleAcc(this)">
           <span class="acc-num">Q2</span>
-          <span class="acc-q">Can commercetools handle our product catalog — millions of automotive SKUs with complex fitment attributes?</span>
+          <span class="acc-q">How does CT handle the customer and personalization use case — DIYer vs. professional, preference capture, loyalty tier feeding back into browse?</span>
           <span class="acc-arrow">&#9660;</span>
         </button>
         <div class="acc-body">
-          <p>Yes. The commercetools product catalog has no practical SKU count limit at enterprise scale — the platform serves customers with multi-million SKU catalogs in production. Product Types support unlimited custom attributes, which is how fitment data (Year/Make/Model/Engine, part number cross-references, OEM numbers, compatibility notes) is modeled: as attributes on the Product Type.</p>
-          <p>For fitment search — the Year/Make/Model faceted lookup — the platform-agnostic pattern is a dedicated automotive search service (your own Elasticsearch/OpenSearch index, or a specialist like OPUS IVS or PartsTech) fed by commercetools product data via the Import API or Subscriptions. commercetools holds the commerce record (price, inventory, order history). Your fitment intelligence lives in the search layer you control and optimize. These two concerns are decoupled by design in a composable architecture.</p>
+          <p>Customer Groups handle segmentation (DIYer, Professional, Bronze/Silver/Gold loyalty tier) — group assignment is the single source that drives pricing, promotional eligibility, and catalog visibility at every commerce event. Custom Types on the Customer object hold preference attributes: vehicle profile, category interests, onboarding answers. Both are native CT primitives, not custom builds.</p>
+          <p>The feed back to browse works via Subscriptions: when a customer's group or profile updates (tier advancement, new vehicle added), CT publishes an event to your existing event bus. Your AI search layer and personalization service pick up the event and refresh that customer's experience. The latency from profile update to experience update is sub-second for the event; downstream refresh speed is in your control.</p>
           <div class="acc-links">
-            <a href="https://docs.commercetools.com/api/projects/productTypes" target="_blank">Product Types →</a>
-            <a href="https://docs.commercetools.com/api/projects/product-search" target="_blank">Product Search →</a>
+            <a href="https://docs.commercetools.com/api/projects/customerGroups" target="_blank">Customer Groups →</a>
+            <a href="https://docs.commercetools.com/api/projects/custom-fields" target="_blank">Custom Fields →</a>
+            <a href="https://docs.commercetools.com/api/projects/subscriptions" target="_blank">Subscriptions →</a>
           </div>
         </div>
       </div>
@@ -1123,12 +1524,60 @@ h1.hero-title {
       <div class="acc-item">
         <button class="acc-trigger" onclick="toggleAcc(this)">
           <span class="acc-num">Q3</span>
-          <span class="acc-q">What does the developer experience look like? REST and GraphQL?</span>
+          <span class="acc-q">We use a CDP — customer data is scattered across systems today. Does CT replace it, or work alongside it?</span>
           <span class="acc-arrow">&#9660;</span>
         </button>
         <div class="acc-body">
-          <p>commercetools provides both REST and GraphQL APIs. REST is the primary API surface — well-documented, versioned, and the basis for all official SDKs. GraphQL is available for query-optimized reads (product search, customer data, order history) and is particularly useful for reducing over-fetching in frontend integrations.</p>
-          <p>Official SDKs are available for TypeScript/JavaScript, Java, Python, PHP, Go, and C#. The SDK handles authentication, request retries, and type safety — your engineers write business logic, not boilerplate API client code. The commercetools API is documented at <a href="https://docs.commercetools.com" target="_blank" style="color:var(--yellow);text-decoration:none;">docs.commercetools.com</a> with full OpenAPI specs, example payloads, and an in-browser API explorer for testing requests without writing code first.</p>
+          <p>Alongside — and this is the correct architecture. CT's customer object is the commerce identity record: it holds the attributes that matter for commerce events (pricing, group assignment, order history, loyalty state). Your CDP holds the broader marketing and analytics identity. The two are linked by a shared external customer ID stored as a Custom Field on the CT Customer object.</p>
+          <p>CT fires Subscription events when a customer's profile or order changes. Your CDP picks up those events and enriches its own record. When your CDP resolves a marketing segment, it can call the CT API to update a Custom Field or Customer Group — which immediately affects the next commerce experience. Neither system owns everything; each owns what it's best at.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/subscriptions" target="_blank">Subscriptions →</a>
+            <a href="https://docs.commercetools.com/api/projects/customers" target="_blank">Customers API →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q4</span>
+          <span class="acc-q">CT mentioned being B2X — one platform for B2C and B2B. How does that work for CarParts Wholesale specifically?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>Business Units are CT's native B2B account model. A repair shop is a Business Unit; the mechanics who buy for that shop are Customer objects associated with it. The Business Unit carries account-level configuration: trade pricing tier, approved catalog, payment terms. Multiple buyers under the same Business Unit share account pricing and catalog access with individual user-level permissions.</p>
+          <p>Critically: this runs on the same CT project as B2C. Same engineering team, same APIs, same license. When Carparts Wholesale modernization is prioritized, the CT foundation from Phase 1 (customer data model) and Phase 2 (cart, checkout, pricing) is already in place. B2B is Phase 3 — extension, not restart. The wholesale team gets a modern experience without a parallel implementation project.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/business-units" target="_blank">Business Units →</a>
+            <a href="https://docs.commercetools.com/api/projects/quotes" target="_blank">Quotes API →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q5</span>
+          <span class="acc-q">Carparts.com owns fulfillment — own trucks, last-mile delivery. What exactly is the CT handoff point to our OMS?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>The boundary is clean and event-driven. When an order is placed in CT, a Subscription publishes an <code>OrderCreated</code> event to your event bus (GCP Pub-Sub or AWS SQS). The payload is the full CT Order object — line items, quantities, shipping address, payment status, and any custom fields you've added. Your OMS picks up the event and owns everything from that point: routing, warehouse, last-mile assignment, delivery.</p>
+          <p>As fulfillment progresses, your OMS calls back to CT's Orders API to update order state (confirmed, shipped, out for delivery, delivered). The customer sees real-time order status in their account because CT holds the status record, updated by your OMS. CT never touches your warehouse logic or routing — it just holds the authoritative order record and keeps the customer-facing status current.</p>
+          <div class="acc-links">
+            <a href="https://docs.commercetools.com/api/projects/subscriptions" target="_blank">Subscriptions →</a>
+            <a href="https://docs.commercetools.com/api/projects/orders" target="_blank">Orders API →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-num">Q6</span>
+          <span class="acc-q">Carparts.com has standardized on Claude Code. How does CT's developer experience hold up in an AI-native development workflow?</span>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">
+          <p>CT is well-suited to Claude Code. Every capability is reachable through REST and GraphQL APIs with full OpenAPI specs, typed SDKs for TypeScript, Java, Python, and more, and structured example payloads throughout the documentation. Claude Code can query the docs, generate API Extension logic, write customer schema definitions, scaffold Subscription handlers, and iterate on integration code in a single session — without your engineers hunting for undocumented behavior or reverse-engineering an opaque platform.</p>
+          <p>The teams moving fastest on CT today use Claude Code to scaffold the integration layer — API Extensions, Subscription handlers, Custom Type definitions — and have working proof-of-concepts running in a sandbox the same afternoon. CT's API design (consistent patterns, predictable resource shapes, no hidden side effects) is exactly the surface that AI-native development tools work best against. Composable, consistent, and fully documented — that's what makes CT and Claude Code a strong pairing.</p>
           <div class="acc-links">
             <a href="https://docs.commercetools.com/sdk" target="_blank">SDKs →</a>
             <a href="https://docs.commercetools.com/api" target="_blank">API Reference →</a>
@@ -1138,68 +1587,16 @@ h1.hero-title {
 
       <div class="acc-item">
         <button class="acc-trigger" onclick="toggleAcc(this)">
-          <span class="acc-num">Q4</span>
-          <span class="acc-q">Does commercetools have customers in automotive or comparable high-SKU, catalog-complexity verticals?</span>
-          <span class="acc-arrow">&#9660;</span>
-        </button>
-        <div class="acc-body">
-          <p>Yes. Relevant reference points include:</p>
-          <ul>
-            <li><strong>Volkswagen Group</strong> — multi-brand automotive commerce (accessories, parts, fleet) with deep backend enterprise system integration, multi-persona B2B/B2C, and complex product attributes across hundreds of model variants.</li>
-            <li><strong>Normet</strong> — industrial B2B with complex catalog attributes, account-level pricing, and large SKU counts across mining and construction equipment parts.</li>
-            <li><strong>Salling Group</strong> — multi-concept, high-SKU retail replacing a custom-built stack. Relevant as a comparable custom-to-composable migration with documented TCO outcomes (75% cost reduction vs. custom).</li>
-            <li><strong>Cargo Crew</strong> — apparel with complex product variants, custom attributes, and B2B account structures. Comparable catalog depth to automotive accessories.</li>
-          </ul>
-          <p>Automotive-specific reference calls can be arranged. commercetools' partner ecosystem also includes SI firms with documented automotive commerce implementations.</p>
-          <div class="acc-links">
-            <a href="https://commercetools.com/customer-stories" target="_blank">Customer Stories →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="acc-item">
-        <button class="acc-trigger" onclick="toggleAcc(this)">
-          <span class="acc-num">Q5</span>
-          <span class="acc-q">Does commercetools have a native search engine, or do we need to bring one?</span>
-          <span class="acc-arrow">&#9660;</span>
-        </button>
-        <div class="acc-body">
-          <p>commercetools provides a <a href="https://docs.commercetools.com/api/projects/product-search" target="_blank" style="color:var(--yellow);text-decoration:none;">Product Search API</a> that covers standard full-text search, filtering, and faceting against the product catalog. For a standard commerce catalog, this is sufficient for PLP, PDP, and category navigation.</p>
-          <p>For automotive-grade search — fitment-specific faceting, VIN lookup integration, part compatibility filtering across millions of SKUs — the standard pattern is a specialized search provider (Algolia, Constructor, Elasticsearch, or a domain-specific automotive search service) fed by commercetools product data. commercetools acts as the product data source; the search provider handles the ranking, faceting, and automotive-specific retrieval logic. This composable pattern gives Carparts.com full control over search quality — the most important customer experience variable in automotive parts — without being constrained by a platform-bundled search engine.</p>
-          <div class="acc-links">
-            <a href="https://docs.commercetools.com/api/projects/product-search" target="_blank">Product Search API →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="acc-item">
-        <button class="acc-trigger" onclick="toggleAcc(this)">
-          <span class="acc-num">Q6</span>
-          <span class="acc-q">What's the realistic TCO comparison vs. continuing to maintain our custom engine?</span>
-          <span class="acc-arrow">&#9660;</span>
-        </button>
-        <div class="acc-body">
-          <p>The custom engine TCO includes: engineering hours for feature development on commodity commerce (cart, checkout, promotions, pricing), security patching and compliance prep, infrastructure management and scaling ops, dependency upgrades and framework migrations, and the opportunity cost of features not built because commodity work filled the roadmap.</p>
-          <p>commercetools TCO: SaaS licensing (modular — pay for capabilities deployed), zero infrastructure management overhead, zero upgrade projects (versionless platform), and engineering time redirected from commodity maintenance to Carparts.com-specific differentiation. Documented comparables: Salling Group reported a 75% TCO reduction vs. their custom stack. Comparable B2B and B2C enterprises report 35–50% operating cost reduction versus legacy or custom platform maintenance within 3 years of adoption.</p>
-          <p>commercetools provides a TCO calculator for Carparts.com-specific inputs if the evaluation requires a quantified model.</p>
-          <div class="acc-links">
-            <a href="https://commercetools.com/tco-calculator" target="_blank">TCO Calculator →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="acc-item">
-        <button class="acc-trigger" onclick="toggleAcc(this)">
           <span class="acc-num">Q7</span>
-          <span class="acc-q">What does enterprise support look like post go-live for a business at Carparts.com's order volume?</span>
+          <span class="acc-q">What's a realistic time-to-value for Phase 1 — customer and personalization — and what would Carparts.com be able to show at the end of it?</span>
           <span class="acc-arrow">&#9660;</span>
         </button>
         <div class="acc-body">
-          <p>For an enterprise account at Carparts.com's scale, the standard recommendation is the Premium support tier: a named Customer Success Engineer (proactive stack reviews, architecture guidance, incident support as a named resource), SLA-backed P1 incident response with direct engineering escalation, a dedicated priority support channel (Slack or Teams — not a ticketing queue), and quarterly business reviews covering platform health and roadmap alignment.</p>
-          <p>The platform is versionless — there are no maintenance windows from platform updates, no forced upgrades, no scheduled downtime from version migrations. The post-go-live support relationship focuses on Carparts.com's integration health and new capability adoption, not platform maintenance cycles that commercetools handles.</p>
+          <p>8–12 weeks for a team of Carparts.com's caliber — MACH-experienced engineers, already operating on AWS, already running AI search and a modernized catalog. At the end of Phase 1: CT holds the customer record as the commerce identity layer, Customer Groups are in place for DIYer/professional segmentation and CarParts+ tiers, Custom Types capture vehicle profile and onboarding preferences, and Subscription events feed customer-change signals to your AI search and personalization service.</p>
+          <p>What Carparts.com can show the business at the end of Phase 1: a logged-in returning customer who gets a materially different browse experience than an anonymous first-timer, with loyalty tier reflected in pricing and promotional eligibility, and vehicle profile surfacing relevant products earlier in search. The gap between "everyone gets the same experience" and "we know who this person is and why they're here" closes — with no change to checkout, fulfillment, or the existing AWS infrastructure.</p>
           <div class="acc-links">
-            <a href="https://commercetools.com/solutions/for-it" target="_blank">For IT Teams →</a>
-            <a href="https://community.commercetools.com" target="_blank">CT Community →</a>
+            <a href="https://docs.commercetools.com/api/projects/customerGroups" target="_blank">Customer Groups →</a>
+            <a href="https://docs.commercetools.com/api/projects/custom-fields" target="_blank">Custom Fields →</a>
           </div>
         </div>
       </div>
@@ -1207,14 +1604,19 @@ h1.hero-title {
       <div class="acc-item">
         <button class="acc-trigger" onclick="toggleAcc(this)">
           <span class="acc-num">Q8</span>
-          <span class="acc-q">Can commercetools and our custom engine run in parallel during migration?</span>
+          <span class="acc-q">Does commercetools have references in automotive or comparable complex-catalog verticals we could speak with?</span>
           <span class="acc-arrow">&#9660;</span>
         </button>
         <div class="acc-body">
-          <p>Yes — this is the expected pattern, not an edge case. Your custom engine continues serving existing traffic. commercetools is adopted for new flows, new channels, or new business initiatives first. As commercetools adoption expands, traffic is rerouted from the custom engine incrementally. The two systems run in parallel for as long as the migration takes — there is no deadline imposed by commercetools, no forced cutover timeline, and no compatibility constraint that prevents the two systems from coexisting.</p>
-          <p>The integration layer (your ERP, supplier systems, PIM) can feed both systems during the transition. commercetools' Import API provides bulk data import for product catalog and historical order data. The migration pace is controlled by Carparts.com's engineering team and business priorities — not by a platform sunset or vendor migration deadline.</p>
+          <p>Yes. Directly relevant references:</p>
+          <ul>
+            <li><strong>Volkswagen Group</strong> — multi-brand automotive commerce (accessories, parts, fleet) with B2B/B2C on one platform, complex product attributes across hundreds of model variants, and deep enterprise system integration.</li>
+            <li><strong>Normet</strong> — industrial B2B with complex catalog attributes, account-level pricing, and large SKU counts across heavy equipment parts. Comparable complexity to CarParts Wholesale.</li>
+            <li><strong>Salling Group</strong> — multi-concept high-SKU retail that replaced a custom-built commerce stack. Comparable migration pattern; documented 75% TCO reduction vs. custom.</li>
+          </ul>
+          <p>Reference calls can be arranged as part of the evaluation. Eric and Emilio can facilitate introductions to any of the above based on which use case is most relevant to Carparts.com's next conversation with leadership.</p>
           <div class="acc-links">
-            <a href="https://docs.commercetools.com/api/projects/import" target="_blank">Import API →</a>
+            <a href="https://commercetools.com/customer-stories" target="_blank">Customer Stories →</a>
           </div>
         </div>
       </div>
@@ -1246,34 +1648,46 @@ function toggleDark() {
   const icon = document.querySelector('.dm-icon');
   if (icon) icon.textContent = on ? '☀' : '☾';
 }
+function toggleDeep(on) {
+  const block = document.getElementById('deep-dive-nav');
+  block.classList.toggle('is-open', on);
+  if (!on) {
+    const deepIds = ['customer','modular','b2b'];
+    const active = deepIds.find(id => document.getElementById('s-' + id)?.classList.contains('active'));
+    if (active) go('overview');
+  }
+}
 
 /* ============================================================
    COMPARISON: data + render
    ============================================================ */
 const compRows = [
-  { id:'mach',       label:'MACH / API-first architecture',              sub:'No tight monolithic coupling' },
-  { id:'extend',     label:'Custom logic — no platform fork',            sub:'Attach business logic to any commerce event' },
-  { id:'headless',   label:'Headless / frontend-agnostic',               sub:'Connect existing frontend, bring your own stack' },
-  { id:'scale',      label:'Auto-scaling — peak traffic, no ops',        sub:'No pre-warming, no SRE intervention required' },
-  { id:'security',   label:'Vendor-maintained PCI DSS + SOC 2',          sub:'Security compliance owned by the platform, not you' },
-  { id:'versionless','label':'Versionless — zero upgrade cycles',        sub:'No dependency migrations, no platform maintenance' },
-  { id:'ttm',        label:'Time-to-ship new commerce features',         sub:'Configuration vs. custom build' },
+  { id:'customer',    label:'Customer data model + segmentation',         sub:'Extensible attributes, Customer Groups, loyalty tier' },
+  { id:'cdp',         label:'CDP / IDP integration',                      sub:'Use your own or CT native — no forced migration' },
+  { id:'modular',     label:'Modular / a la carte adoption',              sub:'Phase in capabilities without replacing what works' },
+  { id:'loyalty',     label:'Loyalty mechanics',                          sub:'Native data model or 3rd-party engine — your choice' },
+  { id:'b2x',         label:'B2C + B2B on one platform',                  sub:'One license, one engineering team, one data model' },
+  { id:'oms',         label:'Event-driven OMS handoff',                   sub:'Order event → your fulfillment, clean boundary' },
+  { id:'versionless', label:'Versionless — zero upgrade cycles',          sub:'No dependency migrations, no platform maintenance' },
+  { id:'scale',       label:'Auto-scaling — peak traffic, no ops',        sub:'No pre-warming, no SRE intervention required' },
+  { id:'security',    label:'Vendor-maintained PCI DSS + SOC 2',          sub:'Platform owns compliance, not your team' },
+  { id:'dx',          label:'Claude Code + API developer velocity',       sub:'Typed SDKs, OpenAPI spec, composable by design' },
   { id:'tco',        label:'Total cost — build + maintain vs. SaaS',     sub:'Engineering hours on commodity vs. differentiation' },
   { id:'obs',        label:'Self-serve observability / diagnostics',     sub:'Platform Insights — traffic, errors, latency, events' },
   { id:'dx',         label:'Developer experience + SDK support',         sub:'REST, GraphQL, typed SDKs, documentation' }
 ];
 
 const ctCells = {
-  mach:       ['ok',  'MACH Alliance founding member. Every component independently swappable. No tight coupling by design.'],
-  extend:     ['ok',  'API Extensions fire synchronous hooks at any commerce event. Custom logic runs in your infrastructure; the platform applies the result. No fork, no platform release dependency.'],
-  headless:   ['ok',  'Fully headless. REST and GraphQL APIs. No bundled frontend. Your existing stack connects directly. Incremental backend migration without changing the customer-facing frontend.'],
-  scale:      ['ok',  'Multi-tenant SaaS on GCP with horizontal auto-scaling. No pre-warming, no capacity planning, no SRE intervention for traffic spikes. 99.999% uptime SLA, <60ms p95 API response.'],
-  security:   ['ok',  'SOC 2 Type 2, PCI DSS Level 1, ISO 27001 — all maintained by commercetools. CVE patching on the platform layer is CT\'s responsibility. Audit evidence available in the Trust Center.'],
-  versionless:['ok',  'Continuous delivery. No upgrade projects, no dependency migration sprints, no maintenance windows. The platform updates transparently; your APIs remain stable.'],
-  ttm:        ['ok',  'Promotions, pricing tiers, cart rules, loyalty mechanics, discount models — all configuration in Merchant Center. Custom logic attaches via Extensions. No custom build for commodity features.'],
-  tco:        ['ok',  'SaaS licensing. Zero infrastructure overhead. Engineering time redirected from commodity maintenance to differentiation. Comparable: Salling Group -75% TCO vs. custom-built stack.'],
-  obs:        ['ok',  'Platform Insights (GA May 2026): real-time traffic, error rates, latency percentiles, subscription health, event delivery. Self-serve in Merchant Center. Direct engineering escalation for incidents.'],
-  dx:         ['ok',  'Full OpenAPI spec, REST + GraphQL, typed SDKs for JS/TS, Java, Python, PHP, Go, C#. In-browser API explorer. Active community and partner ecosystem.']
+  customer:   ['ok',  'Customer Groups (native segmentation: DIYer/pro, loyalty tier) + Custom Types (vehicle profile, preferences, onboarding attributes). No schema migration. Attribute available at every commerce event immediately after definition.'],
+  cdp:        ['ok',  'CT customer object is the commerce identity record. External CDP links via shared ID. CT fires Subscription events on profile changes; CDP enriches its own record. Neither replaces the other — they complement.'],
+  modular:    ['ok',  'Every CT capability is independently adoptable. Customer + personalization (Phase 1) runs without touching cart or checkout. Phase 2 adds cart/pricing. Phase 3 adds B2B. No forced bundling.'],
+  loyalty:    ['ok',  'Native: loyalty tier as Customer Group, points as Custom Field, earn logic in API Extension. 3rd party: Talon.One, Loyalty Prime, Antavo integrate via Extensions. CT holds the commerce record; loyalty platform holds the rules. Your choice.'],
+  b2x:        ['ok',  'Business Units for B2B accounts (repair shops, fleets, dealers) + standard Customer for B2C — same project, same license, same engineering team. Trade pricing, net-30, quote-to-order all native.'],
+  oms:        ['ok',  'OrderCreated Subscription publishes to GCP Pub-Sub or AWS SQS. Full order payload. Your OMS consumes and owns fulfillment. CT Orders API receives status callbacks. Clean boundary — CT owns the record, you own delivery.'],
+  versionless:['ok',  'Continuous delivery. No upgrade projects, no dependency migration sprints, no maintenance windows. Stable APIs — new capabilities are additive, never breaking.'],
+  scale:      ['ok',  'Multi-tenant SaaS on GCP with horizontal auto-scaling. No pre-warming, no SRE intervention. 99.999% uptime SLA, <60ms p95 API response under peak load.'],
+  security:   ['ok',  'SOC 2 Type 2, PCI DSS Level 1, ISO 27001 — maintained by CT. CVE patching is CT\'s sprint, not yours. PCI scope narrows because the payment surface is CT\'s to certify. Audit evidence in the Trust Center.'],
+  dx:         ['ok',  'Full OpenAPI spec, REST + GraphQL, typed SDKs for TS/JS, Java, Python, PHP, Go, C#. Claude Code generates working CT integration code — API Extensions, Subscription handlers, Custom Types — from CT\'s docs in context. Same-afternoon proof-of-concept is realistic.'],
 };
 
 const compData = {
@@ -1281,96 +1695,96 @@ const compData = {
     name: 'Custom-Built Engine',
     tag:  'Built for you — maintained by you',
     cells: {
-      mach:       ['mid', 'Custom-built can be API-first by design. But MACH architecture has to be maintained and enforced by your team across every sprint, library upgrade, and new hire.'],
-      extend:     ['ok',  'Full flexibility — you write whatever logic you need. Cost: every piece is yours to build, test, secure, and maintain indefinitely. No abstraction layer means no boundary between commodity and proprietary code.'],
-      headless:   ['ok',  'You built the frontend integration. Full control, full ownership. Also: full responsibility for the API contract every time the backend changes.'],
-      scale:      ['no',  'Horizontal scaling is an infrastructure project your SRE team designs, implements, and monitors. Traffic spikes require advance capacity planning. Incidents during peak events are your team\'s problem to diagnose and resolve.'],
-      security:   ['no',  'PCI DSS scope covers your checkout layer. CVEs in your dependencies are your team\'s responsibility. Audit evidence is produced by your engineering and compliance teams. The tax grows with codebase age.'],
-      versionless:['no',  'Your codebase has a version history you own. Every dependency upgrade, security patch, and framework migration is a project your team plans and executes — often across multiple quarters.'],
-      ttm:        ['no',  'Every new commerce feature — loyalty program, new checkout step, new discount model — is a custom build. Commodity features cost full-price sprints on infrastructure that provides no competitive advantage.'],
-      tco:        ['mid', 'Low (or zero) licensing cost. High engineering cost: commodity maintenance, security patching, scaling ops, upgrade cycles. Opportunity cost: every engineer hour on commodity commerce is an hour not spent on differentiation.'],
-      obs:        ['mid', 'You built your own observability. Works for what you instrumented. Gaps show up during incidents you didn\'t anticipate. Third-party APM required for production-grade diagnostics.'],
-      dx:         ['mid', 'Your team knows the codebase. New engineers face a learning curve on a proprietary system with no external documentation, no community, and no SDKs they can use between jobs.']
+      customer:   ['mid', 'You can model any customer attribute. Cost: every segment, every attribute, every migration is a custom build and a custom schema change. No native Customer Group primitive — segmentation logic lives in your application code.'],
+      cdp:        ['ok',  'Full control. You own the integration you have. Also: you own every schema change, migration, and sync failure that results from updating it.'],
+      modular:    ['no',  'Custom-built systems are inherently coupled. "Adopting a module" means refactoring integrations you own. Checkout, customer, and catalog are tightly bound in most custom engines.'],
+      loyalty:    ['mid', 'CarParts+ is evidence you can build it. The engineering cost, the ongoing maintenance, and the integration to browse/pricing — all yours. No native data model; every rule is custom code.'],
+      b2x:        ['mid', 'Technically possible. In practice: separate codepaths for B2C and B2B, separate data models, separate ops burden. Growing wholesale means a parallel implementation project, not a configuration change.'],
+      oms:        ['ok',  'You own the event model. You built it. Full control over the boundary, the payload, and the retry logic.'],
+      versionless:['no',  'Your dependencies have versions you own. Framework upgrades, security patches, library migrations — all planned and executed by your team, often across multiple quarters.'],
+      scale:      ['no',  'Horizontal scaling is an infrastructure project your SRE team designs, monitors, and maintains. Traffic spikes require advance capacity planning. Incidents during promotions are your team\'s to diagnose.'],
+      security:   ['no',  'PCI DSS scope covers your custom layer. Every CVE in your dependencies is your sprint. Audit evidence is produced by your engineering and compliance teams. This tax grows with codebase age.'],
+      dx:         ['mid', 'Your team knows the codebase. Claude Code can work with your custom APIs, but CT\'s structured docs + OpenAPI spec give Claude Code a richer context to generate working integration code faster.']
     }
   },
   shopify: {
     name: 'Shopify Plus',
-    tag:  'Consumer-first, enterprise-last',
+    tag:  'Consumer-first, B2B as afterthought',
     cells: {
-      mach:       ['mid', 'API-accessible but the platform remains the central system of record with rate limits and versioned APIs. Not MACH-native.'],
-      extend:     ['mid', 'Shopify Functions offer limited custom logic. Complex cart rules and custom checkout flows push against platform constraints at automotive-catalog complexity.'],
-      headless:   ['ok',  'Hydrogen/Remix and custom storefronts are well-supported. Headless Shopify is a documented pattern.'],
-      scale:      ['ok',  'Multi-tenant SaaS, auto-scaling. Checkout capacity managed by Shopify. Proven at peak traffic.'],
+      customer:   ['mid', 'Customer metafields can hold custom attributes. No native Customer Group equivalent — segmentation requires custom app logic or metafield-based workarounds. B2B customer model is a separate overlay.'],
+      cdp:        ['mid', 'Customer data accessible via API. CDP integration requires custom middleware. No native Subscription event model; webhooks available but less structured than CT\'s event system.'],
+      modular:    ['mid', 'Shopify Plus is a bundled platform. You can connect headless, but the commerce core (cart, checkout, orders) is the platform — you can\'t adopt a subset. Checkout extensibility is limited to Shopify Functions.'],
+      loyalty:    ['mid', 'No native loyalty data model. Third-party loyalty apps (Yotpo, LoyaltyLion) add cost and complexity. Deep loyalty integration with pricing and browse requires custom app development.'],
+      b2x:        ['no',  'B2B and B2C require separate Shopify stores or a B2B-specific app layer. Unified customer identity across both is a custom build. Trade pricing and net terms require third-party apps.'],
+      oms:        ['mid', 'Order webhooks available. Payload is less structured than CT\'s Subscription model. Rate limits on webhook delivery can cause missed events under high order volume.'],
+      versionless:['ok',  'SaaS continuous delivery. Versioned APIs still introduce downstream breaking changes on Shopify\'s schedule, not yours.'],
+      scale:      ['ok',  'Multi-tenant SaaS, auto-scaling. Proven at peak traffic. Checkout capacity is managed by Shopify — no pre-warming required.'],
       security:   ['ok',  'PCI DSS and SOC 2 maintained by Shopify. Standard enterprise certifications held.'],
-      versionless:['ok',  'SaaS continuous delivery. Versioned APIs still introduce downstream breaking changes on a schedule.'],
-      ttm:        ['ok',  'Strong for standard B2C commerce patterns. Automotive-specific logic — fitment filtering, complex pricing, B2B accounts — still requires custom apps or Shopify Functions.'],
-      tco:        ['mid', 'Competitive licensing. App ecosystem costs and GMV-based fee structures add up at scale. Shopify Plus fees are a percentage of revenue, not a flat enterprise license.'],
-      obs:        ['mid', 'Basic analytics in admin. Production-grade observability requires third-party APM integration. Limited self-serve incident diagnostics.'],
-      dx:         ['ok',  'Strong developer ecosystem, extensive documentation. Rate limits and versioned APIs require more defensive coding than commercetools\' unlimited API model.']
+      dx:         ['ok',  'Strong developer ecosystem and documentation. Rate limits and versioned APIs require more defensive coding. Shopify Functions is more constrained than CT\'s API Extension model for complex custom logic.']
     }
   },
   adobe: {
     name: 'Adobe Commerce',
-    tag:  'Monolithic heritage, high ownership cost',
+    tag:  'Monolithic heritage, maximum ownership cost',
     cells: {
-      mach:       ['no',  'Monolithic PHP core. PWA Studio sits on top, not within. Not MACH-aligned at the platform layer.'],
-      extend:     ['mid', 'Extension system exists. Magento ecosystem carries heavy customization, creating upgrade risk. Extensions conflict in production — a documented, recurring problem.'],
-      headless:   ['mid', 'PWA Studio available but adds architectural complexity. REST and GraphQL APIs exist; headless adoption adds implementation overhead.'],
-      scale:      ['mid', 'SaaS (PaaS) variant auto-scales but infrastructure management persists. Self-hosted requires full ops ownership.'],
-      security:   ['ok',  'Enterprise certifications held. But versioned releases mean your customizations may introduce vulnerabilities outside Adobe\'s cert scope.'],
-      versionless:['no',  'Major version upgrades remain significant engineering projects — 6–18 months for complex implementations. The upgrade burden Carparts.com would be trading a custom engine for.'],
-      ttm:        ['mid', 'Faster than custom for standard features. Complex business logic still requires Magento-certified developer time and cost.'],
-      tco:        ['no',  'High licensing. Extensive customization cost. One of the highest TCOs in the market — consistently cited by analysts as a value-for-cost concern.'],
-      obs:        ['mid', 'New Relic integration available. Not self-serve depth for production incident diagnostics.'],
-      dx:         ['mid', 'Large developer community, but specialized Magento expertise is expensive and increasingly scarce. Learning curve significant for engineers not already in the ecosystem.']
+      customer:   ['mid', 'Customer attributes extensible via EAV model. No native Customer Group equivalent for real-time segmentation — requires custom module development. B2B company hierarchy exists but requires significant configuration.'],
+      cdp:        ['mid', 'REST and GraphQL APIs available. CDP integration requires custom middleware. No native event-driven architecture — webhook extensions available but add complexity.'],
+      modular:    ['no',  'Adobe Commerce is a monolith with extensions. You cannot adopt "just customer management" — the platform is a bundle. Adding B2B requires the separate B2B module with significant configuration overhead.'],
+      loyalty:    ['no',  'No native loyalty data model. Requires third-party extensions or full custom development. Magento extension ecosystem carries upgrade conflict risk — documented recurring production issue.'],
+      b2x:        ['mid', 'B2B module available as a separate addon. Company hierarchy, quote-to-order, and net terms exist. Integration with B2C on the same instance adds configuration complexity and upgrade risk.'],
+      oms:        ['mid', 'Order events available via observer pattern. Direct SQS/Pub-Sub integration requires custom middleware. Self-hosted adds full infrastructure ownership to the handoff layer.'],
+      versionless:['no',  'Major version upgrades are 6–18 month engineering projects for complex implementations. Exactly the upgrade burden you\'d be trading your custom engine for.'],
+      scale:      ['mid', 'PaaS variant auto-scales. Self-hosted requires full ops ownership. Infrastructure management persists in either model.'],
+      security:   ['ok',  'Enterprise certifications held. Customizations may introduce vulnerabilities outside Adobe\'s cert scope — your extensions are your security surface.'],
+      dx:         ['mid', 'Large but specialized developer community. Magento expertise is expensive and increasingly scarce. Learning curve significant for engineers outside the ecosystem. Not Claude Code-friendly — opaque extension system.']
     }
   },
   bigcommerce: {
     name: 'BigCommerce',
     tag:  'Mid-market ceiling in enterprise clothing',
     cells: {
-      mach:       ['mid', 'API-first architecture but monolithic components remain. Not a MACH Alliance member.'],
-      extend:     ['mid', 'API extensibility exists. Complex B2C logic — automotive fitment, custom pricing, multi-tier accounts — hits platform constraints faster than commercetools.'],
-      headless:   ['ok',  'Well-supported, well-documented. Stencil or custom storefronts both viable.'],
-      scale:      ['ok',  'SaaS, auto-scaling. Proven at mid-market scale. Enterprise-grade peak traffic at automotive GMV levels: less documented.'],
-      security:   ['ok',  'SOC 2, PCI DSS certifications held.'],
-      versionless:['ok',  'SaaS continuous delivery.'],
-      ttm:        ['ok',  'Strong for standard B2C. Automotive-specific complexity and custom logic require more extension work than in commercetools.'],
-      tco:        ['ok',  'Competitive licensing at mid-market scale. Less proven at Carparts.com\'s catalog and transaction volume.'],
-      obs:        ['mid', 'Built-in analytics. Production debugging depth is limited compared to Platform Insights.'],
-      dx:         ['ok',  'Well-documented, active community. Less depth than commercetools at automotive/enterprise complexity.']
+      customer:   ['mid', 'Customer attributes available. No native Customer Group equivalent for real-time pricing segmentation — requires custom logic or third-party. B2B customer hierarchy is limited in depth.'],
+      cdp:        ['mid', 'API accessible. CDP integration requires custom middleware. Webhook-based events available but less structured than CT\'s Subscription model.'],
+      modular:    ['mid', 'More modular than Adobe but still a bundled platform. You cannot adopt just customer management standalone — the commerce core comes as a package.'],
+      loyalty:    ['mid', 'No native loyalty data model. Third-party apps available. Deep integration with pricing and browse requires custom development on top of BigCommerce\'s API.'],
+      b2x:        ['mid', 'B2B Edition supports company hierarchies and trade pricing. Less proven at wholesale complexity comparable to CarParts Wholesale. Unified B2C + B2B on one instance has known limitations.'],
+      oms:        ['mid', 'Order webhooks available. Less structured than CT\'s Subscription model. Rate limits apply under high order volume.'],
+      versionless:['ok',  'SaaS continuous delivery. No forced upgrade projects.'],
+      scale:      ['ok',  'SaaS, auto-scaling. Proven at mid-market scale. Enterprise peak traffic at automotive GMV levels is less documented.'],
+      security:   ['ok',  'SOC 2 and PCI DSS certifications held.'],
+      dx:         ['ok',  'Well-documented, active community. Less extensibility depth than CT for complex custom logic. Claude Code can work with BigCommerce APIs but the extension model is more constrained.']
     }
   },
   salesforce: {
     name: 'Salesforce Commerce Cloud',
-    tag:  'Ecosystem lock-in, growth penalty',
+    tag:  'Ecosystem lock-in, revenue-growth penalty',
     cells: {
-      mach:       ['no',  'Acquisition-based, tightly coupled core. Full codebase redeployments required for major updates. MACH-unfriendly by design.'],
-      extend:     ['mid', 'Extension hooks exist but are constrained by SFCC platform patterns and require certified SFCC developer expertise.'],
-      headless:   ['mid', 'Composable storefront option. Adds significant implementation complexity; not the path of least resistance.'],
-      scale:      ['ok',  'Multi-tenant SaaS. Auto-scaling. Performance under peak load has been publicly documented as variable on large implementations.'],
-      security:   ['ok',  'Enterprise certifications held. Ecosystem lock-in means security posture is tied to Salesforce\'s broader platform decisions.'],
-      versionless:['no',  'Significant upgrade projects remain. GMV-based pricing penalizes revenue growth — a structural disincentive as Carparts.com scales.'],
-      ttm:        ['mid', 'Business Manager UI helps merchandising. Custom commerce logic still requires certified SFCC developer time, which is expensive and slower than commercetools\' extension model.'],
-      tco:        ['no',  'GMV-based pricing means your commerce platform cost grows with your revenue. High total cost as the business scales. Persistent large-implementation performance issues documented.'],
-      obs:        ['mid', 'Admin analytics. Third-party APM for production-grade diagnostics. Not self-serve depth.'],
-      dx:         ['mid', 'Large ecosystem but heavy specialization requirement. SFCC certification culture means cross-pollination with general engineering community is limited.']
+      customer:   ['mid', 'Customer profile extensible via custom attributes. Segmentation requires Salesforce CDP (separate license). Real-time Customer Group equivalent requires SFCC configuration that is complex to maintain.'],
+      cdp:        ['mid', 'Salesforce Data Cloud (CDP) integrates natively — if you buy it. External CDP requires custom integration. Lock-in by design: the ecosystem is optimized for Salesforce-to-Salesforce connections.'],
+      modular:    ['no',  'SFCC is a tightly bundled platform. Modular adoption is not the intended pattern. Adopting customer management standalone is not a supported use case.'],
+      loyalty:    ['mid', 'Loyalty capabilities exist but require significant configuration. Deep integration with browse and pricing still requires certified SFCC developer time. Third-party loyalty engines add cost.'],
+      b2x:        ['mid', 'B2B Commerce Cloud is a separate product with a separate license. Unified B2C + B2B on one platform means two separate SFCC products — not one platform.'],
+      oms:        ['mid', 'Platform Events available for order messaging. GCP/AWS integration requires middleware. Broader stack is engineered for Salesforce-ecosystem interop, not best-of-breed orchestration.'],
+      versionless:['no',  'Significant upgrade projects remain. GMV-based pricing penalizes revenue growth — your commerce platform cost scales with your success, not with your usage.'],
+      scale:      ['ok',  'Multi-tenant SaaS, auto-scaling. Performance under peak load has been publicly documented as variable on large implementations.'],
+      security:   ['ok',  'Enterprise certifications held. Ecosystem lock-in means your security posture is tied to Salesforce\'s broader platform decisions.'],
+      dx:         ['mid', 'Large ecosystem but heavy specialization requirement. SFCC certification culture limits cross-pollination with general engineering talent. Not a Claude Code-friendly surface.']
     }
   },
   sap: {
     name: 'SAP Commerce Cloud',
-    tag:  'Enterprise feature set, enterprise complexity cost',
+    tag:  'Maximum feature set, maximum complexity cost',
     cells: {
-      mach:       ['no',  'Monolithic Java core. Headless storefront options exist but the commerce core is not MACH-aligned.'],
-      extend:     ['mid', 'Extension system exists but carries migration risk. Specialized SAP Commerce developers are expensive and increasingly scarce.'],
-      headless:   ['mid', 'Headless storefront available. Adds architectural layers to an already complex platform.'],
-      scale:      ['mid', 'SaaS option (SAP BTP) auto-scales. Self-hosted requires full infrastructure ownership. SaaS adoption among SAP Commerce customers is not universal.'],
-      security:   ['ok',  'Enterprise certifications held. The platform\'s complexity makes the attack surface management more demanding than commercetools\' single-API architecture.'],
-      versionless:['no',  'Version upgrades remain multi-quarter engineering projects. The upgrade burden is one of the most common reasons enterprises evaluate alternatives to SAP Commerce.'],
-      ttm:        ['no',  'Specialist SAP Commerce developers required. Time to ship new commerce features consistently measured in months, not weeks. Not competitive with commercetools\' configuration-first model.'],
-      tco:        ['no',  'Very high total cost. Licensing, specialist developer cost, upgrade projects, and infrastructure combine to create one of the highest TCO profiles in enterprise commerce.'],
-      obs:        ['mid', 'Basic admin analytics. Third-party APM required for production-grade diagnostics.'],
-      dx:         ['mid', 'Specialized, expensive expertise. Limited to engineers who have invested in the SAP ecosystem specifically.']
+      customer:   ['mid', 'Customer model is deep and configurable. B2B company hierarchy is a strength. Real-time segmentation at CT\'s Customer Group speed requires significant customization on top of the core model.'],
+      cdp:        ['mid', 'SAP Customer Data Platform integrates natively — if you buy into the SAP ecosystem. External CDP requires custom integration via SAP\'s middleware layer.'],
+      modular:    ['no',  'SAP Commerce is a monolith. Modular adoption is not the intended pattern. Every capability comes with the full platform — you cannot adopt customer management standalone.'],
+      loyalty:    ['mid', 'Loyalty capabilities exist within the SAP ecosystem. Standalone loyalty engine integration requires specialist SAP developer resources. Not a fast path to CarParts+ integration.'],
+      b2x:        ['mid', 'B2B capabilities are strong — company hierarchy, quotes, net terms, approval workflows. But the complexity cost of configuring and maintaining B2B in SAP Commerce is high.'],
+      oms:        ['mid', 'Event integration possible via SAP Integration Suite. Requires specialist knowledge and significant middleware investment. Not a clean event-boundary like CT\'s Subscriptions.'],
+      versionless:['no',  'Multi-quarter upgrade projects are the most common reason enterprises evaluate SAP Commerce alternatives. The upgrade burden is the defining characteristic of the platform\'s TCO.'],
+      scale:      ['mid', 'SAP BTP (SaaS option) auto-scales. Self-hosted requires full infrastructure ownership. SaaS adoption is not universal across the SAP Commerce customer base.'],
+      security:   ['ok',  'Enterprise certifications held. Platform complexity makes attack surface management more demanding than CT\'s single-API architecture.'],
+      dx:         ['no',  'Specialized, expensive SAP developer expertise required. Not accessible to general-purpose engineering talent. Not a Claude Code-friendly surface — opaque extension model, limited public documentation depth.']
     }
   }
 };
