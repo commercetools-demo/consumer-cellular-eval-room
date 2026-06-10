@@ -119,6 +119,8 @@ body { font-family:var(--sans); background:var(--bg); color:var(--text); display
 .sb-switch input:checked + .sb-switch-slider { background:var(--yellow); }
 .sb-switch input:checked + .sb-switch-slider::before { transform:translateX(12px); }
 .sb-switch input:focus-visible + .sb-switch-slider { outline:2px solid var(--yellow); outline-offset:2px; }
+.sb-collapsible { display:none; }
+.sb-collapsible.is-open { display:block; }
 
 .main { margin-left:var(--nav); flex:1; min-width:0; }
 
@@ -163,7 +165,7 @@ h1.hero-title {
   font-size:clamp(27px,3.4vw,44px); font-weight:700; color:var(--white);
   line-height:1.18; margin-bottom:16px; letter-spacing:-.5px;
 }
-.hero-sub { font-size:16px; color:var(--text-muted); line-height:1.72; margin-bottom:36px; max-width:1100px; }
+.hero-sub { font-size:16px; color:var(--text-muted); line-height:1.72; margin-bottom:36px; }
 .hero-btns { display:flex; gap:12px; flex-wrap:wrap; }
 
 .btn-pri {
@@ -192,7 +194,7 @@ h1.hero-title {
 
 .sec-eyebrow { font-family:var(--mono); font-size:10px; font-weight:600; color:var(--yellow); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
 .sec-title { font-size:clamp(20px,2.5vw,27px); font-weight:700; color:var(--white); margin-bottom:10px; letter-spacing:-.3px; line-height:1.2; }
-.sec-lead { font-size:18px; color:var(--text-muted); line-height:1.72; margin-bottom:34px; max-width:1100px; }
+.sec-lead { font-size:18px; color:var(--text-muted); line-height:1.72; margin-bottom:34px; }
 
 .g2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
 .g3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; }
@@ -503,7 +505,7 @@ h1.hero-title {
   <section id="s-overview" class="hero active">
     <div class="eyebrow">Digital Evaluation Room - Carparts.com</div>
     <h1 class="hero-title"><span style="font-size:clamp(39px,5.2vw,66px);display:block;margin-bottom:8px;">commercetools</span>Built So Carparts.com Can Build What Matters</h1>
-    <p class="hero-sub">This room is built by <a href="https://commercetools.com" target="_blank" style="color:var(--yellow);text-decoration:none;font-weight:600;">commercetools</a> for the Carparts.com team. Three years into a real MACH transformation - CMS, AI search, product recommendations, catalog services, and checkout modernized and running on AWS - the remaining gap is the one with the highest business impact: customer identity, personalization, and tying all of it into a browse-to-buy experience that converts the 90% first-time visitor into a returning customer. That's what this room is about. Every claim links to documentation, an analyst report, or a customer story you can verify independently.</p>
+    <p class="hero-sub">This room is built by <a href="https://commercetools.com" target="_blank" style="color:var(--yellow);text-decoration:none;font-weight:600;">commercetools</a> for the Carparts.com team. CMS, AI search, product recommendations, catalog services, and checkout are modernized and running on AWS - the remaining gap is the one with the highest business impact: customer identity, personalization, and tying all of it into a browse-to-buy experience that converts the 90% first-time visitor into a returning customer. That's what this room is about. Every claim links to documentation, an analyst report, or a customer story you can verify independently.</p>
     <div class="hero-btns">
       <button class="btn-pri" onclick="go('buildvbuy')">The Build vs. Buy Case →</button>
       <a class="btn-sec" href="https://docs.commercetools.com" target="_blank">Open Documentation ↗</a>
@@ -596,7 +598,7 @@ h1.hero-title {
   <section id="s-buildvbuy" class="section">
     <div class="sec-eyebrow">Where the Transformation Stands</div>
     <h2 class="sec-title">What's Done. What's Left. What CT Covers.</h2>
-    <p class="sec-lead">Three years in, Carparts.com has moved fast. CMS, AI search, product recommendations, catalog services, and checkout - all modernized and running on AWS. CarParts+ loyalty is going live. The remaining gap is smaller in surface area but carries the highest business impact: the customer and personalization layer, the piece that ties everything else together and was the reason the e-commerce engine modernization stalled. Here's our read of what that gap is costing.</p>
+    <p class="sec-lead">Carparts.com has moved fast. CMS, AI search, product recommendations, catalog services, and checkout - all modernized and running on AWS. CarParts+ loyalty is going live. The remaining gap is smaller in surface area but carries the highest business impact: the customer and personalization layer, the piece that ties everything else together and was the reason the e-commerce engine modernization stalled. Here's our read of what that gap is costing.</p>
 
     <div class="sec-eyebrow" style="margin-bottom:12px;">Five Gaps That Remain</div>
     <div class="pain-list">
@@ -1186,7 +1188,7 @@ h1.hero-title {
     <div class="card hi">
       <div class="card-title">Bottom Line on Customer &amp; Personalization</div>
       <div class="card-body" style="font-size:14px;margin-top:8px;line-height:1.72;">
-        commercetools Customer Groups and Custom Types are the data model that connects CarParts+ loyalty, DIYer/pro segmentation, and vehicle preferences to every commerce event. This is the connective tissue that was missing - the piece that makes loyalty, search ranking, and personalization work together rather than in silos. It's configuration, not a custom build.
+        commercetools <a href="https://docs.commercetools.com/api/projects/customerGroups" target="_blank" style="color:var(--yellow);text-decoration:none;">Customer Groups</a> and <a href="https://docs.commercetools.com/api/projects/custom-fields" target="_blank" style="color:var(--yellow);text-decoration:none;">Custom Types</a> are the data model that connects CarParts+ loyalty, DIYer/pro segmentation, and vehicle preferences to every commerce event. This is the connective tissue that was missing - the piece that makes loyalty, search ranking, and personalization work together rather than in silos. It's configuration, not a custom build.
       </div>
     </div>
 
@@ -1460,6 +1462,7 @@ h1.hero-title {
         <option value="kibo">Kibo Commerce</option>
         <option value="phasezero">PhaseZero.ai</option>
         <option value="emporix">Emporix</option>
+        <option value="broadleaf">Broadleaf Commerce</option>
       </select>
     </div>
 
@@ -1766,6 +1769,22 @@ const compData = {
       scale:      ['mid', 'Cloud-native infrastructure designed for scale. US enterprise references at automotive catalog depth and B2C traffic levels are limited. Emporix is EU-headquartered - US data residency and latency SLAs for Carparts.com need explicit contractual confirmation.'],
       security:   ['mid', 'SOC 2 Type 2 and data privacy compliance documented. EU-first company - GDPR-aligned by design, but US-specific compliance requirements (US data residency, US-region failover) need explicit confirmation before procurement.'],
       dx:         ['mid', 'API-first, OpenAPI-documented, similar surface to CT in design. Smaller developer community and ecosystem. Claude Code would have significantly less training data on Emporix\'s APIs than CT\'s extensively documented, widely-indexed surface.']
+    }
+  },
+  broadleaf: {
+    name: 'Broadleaf Commerce',
+    tag:  'Open-source Java monolith - your team owns the complexity',
+    cells: {
+      customer:   ['mid', 'Extensible customer domain model via Java/Spring but no native Customer Group equivalent for real-time commerce event scoping. DIYer/pro segmentation and loyalty tier assignment require custom Java development - not configuration. Every attribute addition means a schema migration your team owns.'],
+      cdp:        ['mid', 'Open-source means full integration control - you can wire anything. No native event-driven subscription architecture. CDP integration requires custom JMS or messaging middleware. Nothing comparable to CT\'s structured, at-scale Subscription model out of the box.'],
+      modular:    ['mid', 'Broadleaf Microservices edition offers modular capabilities, but adoption at Carparts.com\'s scale with the traditional monolith is common. Adopting customer management standalone is not a supported pattern - the commerce core is a bundle.'],
+      loyalty:    ['no',  'No native loyalty data model. CarParts+ earn/tier/redemption at B2C scale requires full custom development on top of Broadleaf\'s domain model or a third-party integration. No published reference for a program at Carparts.com\'s complexity.'],
+      b2x:        ['ok',  'Documented B2B capabilities: account hierarchy, price lists, approval workflows. B2C and B2B on one platform is a stated and real capability with reference customers. Complexity cost of implementation is high relative to CT\'s configuration-based approach.'],
+      oms:        ['mid', 'Event-driven OMS integration requires custom JMS or messaging implementation. No structured subscription event model equivalent to CT\'s. Integration boundary quality depends entirely on your team\'s custom implementation.'],
+      versionless:['no',  'Versioned Java releases your team owns. Spring, Hibernate, and Java dependency upgrades are planned engineering projects - not unlike the upgrade burden of any Java enterprise platform. Major version migrations are multi-quarter efforts.'],
+      scale:      ['mid', 'Microservices version scales horizontally. Traditional monolith requires infrastructure engineering your team designs and maintains. Peak traffic management at Carparts.com\'s automotive GMV and session volume is not a published Broadleaf reference case.'],
+      security:   ['no',  'Open-source means PCI DSS scope covers your custom implementation. CVEs in Spring, Hibernate, and Java dependencies are your sprint. Compliance evidence is produced by your engineering and compliance teams - same tax as your current custom engine.'],
+      dx:         ['mid', 'Java/Spring expertise required. Not accessible to modern full-stack engineers without significant onboarding. Not Claude Code-friendly - the domain model and extension points require deep Java knowledge. OpenAPI surface is limited compared to CT\'s publicly documented REST and GraphQL spec.']
     }
   },
   custom: {
