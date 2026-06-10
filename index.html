@@ -439,32 +439,96 @@ h1.hero-title {
   .flow-step { border-radius:var(--r) !important; }
 }
 </style>
-<script src="https://demo-tracker-public-vikeh6xrjq-uc.a.run.app/t.js?site=carparts-evaluation" defer></script>
+<style>
+#access-gate {
+  position:fixed; inset:0; z-index:9999;
+  background:rgba(10,10,14,0.92); backdrop-filter:blur(6px);
+  display:flex; align-items:center; justify-content:center;
+}
+#access-gate.hidden { display:none; }
+.gate-box {
+  background:var(--bg-1,#f6f7f9); border:1px solid var(--border,#e3e6ea);
+  border-radius:8px; padding:40px 44px; width:100%; max-width:400px;
+  box-shadow:0 24px 64px rgba(0,0,0,.45);
+}
+.gate-eyebrow {
+  font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600;
+  color:#0067A5; letter-spacing:2.2px; text-transform:uppercase;
+  margin-bottom:16px; display:flex; align-items:center; gap:10px;
+}
+.gate-eyebrow::before { content:''; width:20px; height:1px; background:#0067A5; flex-shrink:0; }
+.gate-title {
+  font-size:20px; font-weight:700; color:var(--text,#0a0a0a);
+  margin-bottom:6px; letter-spacing:-.3px;
+}
+.gate-sub {
+  font-size:13px; color:var(--text-dim,#5b6470); line-height:1.6; margin-bottom:28px;
+}
+.gate-label {
+  display:block; font-size:11px; font-weight:600; color:var(--text-muted,#2f3640);
+  letter-spacing:.3px; margin-bottom:6px;
+}
+.gate-input {
+  width:100%; padding:10px 13px; font-size:14px;
+  border:1px solid var(--border-mid,#cdd2d8); border-radius:5px;
+  background:var(--bg,#fff); color:var(--text,#0a0a0a);
+  font-family:'Inter',sans-serif; margin-bottom:16px;
+  transition:border-color .15s, box-shadow .15s;
+}
+.gate-input:focus { outline:none; border-color:#0067A5; box-shadow:0 0 0 3px rgba(0,103,165,.12); }
+.gate-btn {
+  width:100%; padding:11px; background:#0067A5; color:#fff;
+  font-size:14px; font-weight:600; border:none; border-radius:5px;
+  cursor:pointer; font-family:'Inter',sans-serif; transition:opacity .15s;
+  margin-top:4px;
+}
+.gate-btn:hover { opacity:.88; }
+.gate-error {
+  font-size:12px; color:#CF202E; margin-top:10px;
+  display:none; font-family:'JetBrains Mono',monospace; letter-spacing:.2px;
+}
+.gate-error.visible { display:block; }
+</style>
 <script>
-  // Relabel the external tracker's gate heading ("Demo access" -> "Evaluation Room Access").
-  (function () {
-    var TARGET = 'Demo access';
-    var REPLACEMENT = 'Evaluation Room Access';
-    function relabel() {
-      var headings = document.querySelectorAll('[data-dt-gate] h2, h2');
-      for (var i = 0; i < headings.length; i++) {
-        if (headings[i].textContent.trim() === TARGET) {
-          headings[i].textContent = REPLACEMENT;
-          return true;
-        }
-      }
-      return false;
+(function () {
+  var KEY = 'cp_gate_ok';
+  if (sessionStorage.getItem(KEY) === '1') return;
+  document.addEventListener('DOMContentLoaded', function () {
+    var gate = document.getElementById('access-gate');
+    if (gate) gate.classList.remove('hidden');
+  });
+  window.__gateSubmit = function () {
+    var email = document.getElementById('gate-email').value.trim();
+    var pass  = document.getElementById('gate-pass').value.trim();
+    var err   = document.getElementById('gate-error');
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailOk || pass !== 'ctcarparts') {
+      err.textContent = !emailOk ? 'Please enter a valid email address.' : 'Incorrect password. Please try again.';
+      err.classList.add('visible');
+      return;
     }
-    if (relabel()) return;
-    var obs = new MutationObserver(function () {
-      if (relabel()) obs.disconnect();
-    });
-    obs.observe(document.documentElement, { childList: true, subtree: true });
-    setTimeout(function () { obs.disconnect(); }, 10000);
-  })();
+    sessionStorage.setItem(KEY, '1');
+    document.getElementById('access-gate').classList.add('hidden');
+  };
+  window.__gateKey = function (e) { if (e.key === 'Enter') window.__gateSubmit(); };
+})();
 </script>
 </head>
 <body>
+
+<div id="access-gate" class="hidden">
+  <div class="gate-box">
+    <div class="gate-eyebrow">Evaluation Room Access</div>
+    <div class="gate-title">Carparts.com × commercetools</div>
+    <p class="gate-sub">This room is prepared for the Carparts.com team. Enter your email and the access password to continue.</p>
+    <label class="gate-label" for="gate-email">Work Email</label>
+    <input id="gate-email" class="gate-input" type="email" placeholder="you@carparts.com" onkeydown="__gateKey(event)">
+    <label class="gate-label" for="gate-pass">Password</label>
+    <input id="gate-pass" class="gate-input" type="password" placeholder="••••••••••" onkeydown="__gateKey(event)">
+    <button class="gate-btn" onclick="__gateSubmit()">Enter Room →</button>
+    <div id="gate-error" class="gate-error"></div>
+  </div>
+</div>
 
 <aside class="sidebar">
   <div class="sb-logo">
