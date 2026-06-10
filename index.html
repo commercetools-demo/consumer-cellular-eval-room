@@ -439,8 +439,30 @@ h1.hero-title {
   .flow-step { border-radius:var(--r) !important; }
 }
 </style>
-<!-- demo-tracker access gate removed temporarily - re-add when ready to gate the room -->
-<!-- <script src="https://demo-tracker-public-vikeh6xrjq-uc.a.run.app/t.js?site=carparts-evaluation" defer></script> -->
+<script src="https://demo-tracker-public-vikeh6xrjq-uc.a.run.app/t.js?site=carparts-evaluation" defer></script>
+<script>
+  // Relabel the external tracker's gate heading ("Demo access" -> "Evaluation Room Access").
+  (function () {
+    var TARGET = 'Demo access';
+    var REPLACEMENT = 'Evaluation Room Access';
+    function relabel() {
+      var headings = document.querySelectorAll('[data-dt-gate] h2, h2');
+      for (var i = 0; i < headings.length; i++) {
+        if (headings[i].textContent.trim() === TARGET) {
+          headings[i].textContent = REPLACEMENT;
+          return true;
+        }
+      }
+      return false;
+    }
+    if (relabel()) return;
+    var obs = new MutationObserver(function () {
+      if (relabel()) obs.disconnect();
+    });
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+    setTimeout(function () { obs.disconnect(); }, 10000);
+  })();
+</script>
 </head>
 <body>
 
