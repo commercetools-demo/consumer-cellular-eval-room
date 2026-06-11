@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v3
+      - uses: actions/setup-node@v4
         with:
-          publish-dir: '.'
-          production-branch: main
-          production-deploy: true
-          deploy-message: 'Deploy from GitHub Actions — ${{ github.sha }}'
+          node-version: 22
+      # Netlify CLI (unlike nwtgck/actions-netlify) bundles the edge
+      # functions declared in netlify.toml as part of the deploy.
+      - name: Deploy to Netlify
+        run: npx netlify-cli@17 deploy --prod --dir . --message "Deploy from GitHub Actions — ${{ github.sha }}"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
