@@ -1,0 +1,9 @@
+[[redirects]]
+  from = "/_tracker/*"
+  to = "https://tracker.ctdemo.net/:splat"
+  status = 200
+  force = true
+
+[[edge_functions]]
+  path = "/*"
+  function = "demo-tracker-gate"
