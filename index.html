@@ -127,7 +127,7 @@ body { font-family:var(--sans); background:var(--bg); color:var(--text); display
 .topbar {
   position:sticky; top:0;
   background:var(--bg-1); border-bottom:1px solid var(--border);
-  padding:0 48px; height:46px;
+  padding:10px 48px; min-height:46px;
   display:flex; align-items:center; justify-content:space-between;
   z-index:50;
 }
@@ -489,7 +489,7 @@ h1.hero-title {
 <div class="main">
 
   <div class="topbar">
-    <div class="tb-left"><strong>commercetools</strong> ×<br>Consumer Cellular &nbsp;·&nbsp; Commerce Platform Evaluation · June 2026</div>
+    <div class="tb-left"><strong>commercetools</strong> ×<br>Consumer Cellular<br>Commerce Platform Evaluation · June 2026</div>
     <div class="tb-right">
       <div class="dot"></div>
       <span class="tb-status">Confidential · Eval Room</span>
@@ -506,7 +506,11 @@ h1.hero-title {
   <section id="s-overview" class="hero active">
     <div class="eyebrow">Digital Evaluation Room - Consumer Cellular</div>
     <h1 class="hero-title"><span style="font-size:clamp(39px,5.2vw,66px);display:block;margin-bottom:8px;">commercetools</span>Buy AND Build. Built for the Way Consumer Cellular Moves Next.</h1>
-    <p class="hero-sub">This room is built by <a href="https://commercetools.com" target="_blank" style="color:var(--yellow);text-decoration:none;font-weight:600;">commercetools</a> for the Consumer Cellular architecture team. The RFP started with billing, and the scope expanded into commerce alongside it. The new storefront is live, and that's the part that's working. The 15-to-20-year-old commerce engine behind it is the gap: it cannot take a pre-order on iPhone launch day, struggles to bundle a device with a plan and stack AARP / USAA / AutoPay / multi-line discounts cleanly at checkout, and struggles to orchestrate a single order across the web, the call center, and the retail storefronts. This room is about what changes when you put a composable commerce layer between your modern frontend and whatever you choose for billing, including AmDocs. The theme is <strong>Buy AND Build</strong>: buy the commodity commerce core, keep building everything that makes Consumer Cellular different. Every claim links to documentation, an analyst report, or a customer story you can verify independently.</p>
+    <p class="hero-sub" style="margin-bottom:16px;">This room is built by <a href="https://commercetools.com" target="_blank" style="color:var(--yellow);text-decoration:none;font-weight:600;">commercetools</a> for the Consumer Cellular team.</p>
+
+    <p class="hero-sub" style="margin-bottom:16px;">The RFP started with billing, and the scope expanded into commerce alongside it. The 15+ year-old custom-built commerce engine is the gap: it cannot take a pre-order on iPhone launch day, struggles to bundle a device with a plan and stack AARP / USAA / AutoPay / multi-line discounts cleanly at checkout, and struggles to orchestrate a single order across the web, the call center, and the retail storefronts.</p>
+
+    <p class="hero-sub">This room is about what changes when you put a composable commerce layer between your modern frontend and whatever you choose for billing, including AmDocs. The theme is <strong>Buy AND Build</strong>: buy the commoditized commerce core, keep building everything that makes Consumer Cellular different.</p>
     <div class="hero-btns">
       <button class="btn-pri" onclick="go('buyandbuild')">The Buy AND Build Case →</button>
       <a class="btn-sec" href="https://docs.commercetools.com" target="_blank">Open Documentation ↗</a>
