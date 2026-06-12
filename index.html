@@ -892,10 +892,6 @@ h1.hero-title {
     <h2 class="sec-title">Scalability: iPhone Launch Day Without the Ops</h2>
     <p class="sec-lead">Scaling a 15+ year-old commerce engine through an Apple launch is an engineering project, not a business decision. Pre-warming, capacity planning, SRE on-call, post-incident reviews: these are real costs every September. commercetools is versionless, multi-region SaaS on GCP with <a href="https://docs.commercetools.com/api/platform-insights" target="_blank" style="color:var(--yellow);text-decoration:none;">Platform Insights</a> for self-serve observability. The same platform pattern handles AT&amp;T's annual iPhone launch at full tier-1 carrier scale, alongside Bell Canada, Rogers, True Corporation, Telmore, Tele2, and Brightspeed in the wider commercetools telco roster. The platform behind this room (<a href="https://commercetools.com" target="_blank" style="color:var(--yellow);text-decoration:none;">commercetools Sphere</a>) already processes more than $100B in annualized GMV at under 60ms average response time, the same scale envelope that's now engineered to host AI agents acting at machine speed. Consumer Cellular's team watches conversion and activation, not infrastructure.</p>
 
-    <div class="scenario-box">
-      <div class="scenario-label">The Scenario</div>
-      <div class="scenario-text">It's the morning of an iPhone launch. Apple has announced. Pre-orders open at 8am ET. Every cart is a device + plan + SIM + AARP/USAA/AutoPay/multi-line promotion stack. Traffic spikes 5–10x within 30 minutes - and unlike a planned promo, every visitor is trying to complete a high-value, multi-line, multi-step configuration in the same window. The current monolith would buckle on the pre-order alone (it has no pre-order primitive to buckle through). On commercetools: no SRE pre-warming, no capacity ticket, no manual scaling. How does the platform handle this - and what does the Consumer Cellular team see on the floor at 8am?</div>
-    </div>
 
     <div class="sec-eyebrow" style="margin-bottom:14px;">Tailored Questions - Scalability</div>
     <div class="acc-list">
@@ -1017,10 +1013,6 @@ h1.hero-title {
     <h2 class="sec-title">Security: Enterprise-Grade by Default, Not by Effort</h2>
     <p class="sec-lead">Security on a 15-to-20-year-old engine is a tax that compounds every sprint. PCI DSS scope covers your checkout layer. CVEs in aging dependencies are the team's problem. CPNI (Customer Proprietary Network Information) handling sits inside code nobody on the current team wrote. commercetools holds <a href="https://commercetools.com/trust" target="_blank" style="color:var(--yellow);text-decoration:none;">SOC 2 Type 2, PCI DSS, and ISO 27001</a> - and is TM Forum certified for telco workloads. When a zero-day lands, Consumer Cellular's concern is its application code, not the commerce platform underneath it.</p>
 
-    <div class="scenario-box">
-      <div class="scenario-label">The Scenario</div>
-      <div class="scenario-text">A critical CVE is published in a widely-used open-source library the legacy commerce engine depends on. Security assesses it as high severity. Within 48 hours, engineers are pulled from the roadmap to patch, test, and deploy a fix across cart, checkout, and the order flow on a codebase nobody on the current team wrote. An audit is also scheduled - compliance needs to produce evidence of PCI DSS controls across the order path and the CPNI handling the legacy engine touches. In a world where the commerce layer is commercetools and AmDocs (or chosen billing) sits alongside it, what changes?</div>
-    </div>
 
     <div class="sec-eyebrow" style="margin-bottom:14px;">Tailored Questions - Security</div>
     <div class="acc-list">
@@ -1277,7 +1269,7 @@ h1.hero-title {
 
     <div class="scenario-box">
       <div class="scenario-label">The Scenario</div>
-      <div class="scenario-text">Phase 1: pre-orders only on commercetools. The new storefront points pre-order traffic at CT; everything else continues to hit the legacy engine. Phase 2: device + plan + SIM bundling and stacked-promotion checkout move to CT. Phase 3: the call center, web, and owned retail storefronts see one unified order. Throughout, AmDocs (or chosen billing) handles rate plans, recurring charges, AR, and revenue recognition. No customer-facing big bang. No commerce decision forced by the billing decision. What does the integration actually look like, and what's a realistic timeline for an architecture team trying to land Phase 1 inside the board's velocity expectations?</div>
+      <div class="scenario-text"><strong>Phase 1:</strong> pre-orders only on commercetools. The new storefront points pre-order traffic at CT; everything else continues to hit the legacy engine.<br><br><strong>Phase 2:</strong> device + plan + SIM bundling and stacked-promotion checkout move to CT.<br><br><strong>Phase 3:</strong> the call center, web, and owned retail storefronts see one unified order.<br><br>Throughout, AmDocs (or chosen billing) handles rate plans, recurring charges, AR, and revenue recognition. No customer-facing big bang. No commerce decision forced by the billing decision. What does the integration actually look like, and what's a realistic timeline for an architecture team trying to land Phase 1 inside the board's velocity expectations?</div>
     </div>
 
     <div class="sec-eyebrow" style="margin-bottom:14px;">Tailored Questions - Composable Migration</div>
