@@ -4,6 +4,8 @@
   status = 200
   force = true
 
-[[edge_functions]]
-  path = "/*"
-  function = "demo-tracker-gate"
+# Access gate disabled for now — re-enable by uncommenting the edge_functions block
+# when a password gate is ready to ship.
+# [[edge_functions]]
+#   path = "/*"
+#   function = "demo-tracker-gate"
