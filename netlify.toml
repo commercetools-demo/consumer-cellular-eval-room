@@ -1,11 +1,3 @@
-[[redirects]]
-  from = "/_tracker/*"
-  to = "https://tracker.ctdemo.net/:splat"
-  status = 200
-  force = true
-
-# Access gate disabled for now — re-enable by uncommenting the edge_functions block
-# when a password gate is ready to ship.
-# [[edge_functions]]
-#   path = "/*"
-#   function = "demo-tracker-gate"
+# demo-tracker fully removed: the redirect proxied /_tracker/* to
+# tracker.ctdemo.net, and the t.js script it served was injecting a
+# client-side gate overlay. The site is now fully public.
